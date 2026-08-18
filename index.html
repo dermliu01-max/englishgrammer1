@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>快樂學英文 · Happy English</title>
+<style>
+:root{
+  --bg:#fff7ed;
+  --ink:#3d3226;
+  --soft:#7c6f62;
+  --card:#ffffff;
+  --u1:#ff8a3d; --u1b:#ffe6d2;
+  --u2:#3fb8af; --u2b:#d5f3f1;
+  --u3:#7c6cf0; --u3b:#e5e1ff;
+  --u4:#ef5da8; --u4b:#ffdcef;
+  --good:#2fa96b; --goodb:#dcf5e8;
+  --bad:#e8543f; --badb:#ffe1dc;
+  --gold:#ffc233;
+  --r:22px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 12% 8%, #ffe9d6 0 90px, transparent 91px),
+    radial-gradient(circle at 88% 22%, #dff5f2 0 110px, transparent 111px),
+    radial-gradient(circle at 20% 88%, #ece8ff 0 100px, transparent 101px),
+    radial-gradient(circle at 92% 82%, #ffe3f1 0 90px, transparent 91px);
+  opacity:.7;
+}
+#app{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 16px 120px}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:sticky;top:0;z-index:30;
+  display:flex;align-items:center;gap:10px;
+  padding:12px 4px;margin-bottom:6px;
+  background:linear-gradient(180deg,var(--bg) 72%,rgba(255,247,237,0));
+}
+.back{
+  border:none;background:#fff;color:var(--ink);
+  width:46px;height:46px;border-radius:16px;flex:0 0 auto;
+  font-size:22px;cursor:pointer;box-shadow:0 3px 0 #e7dbcb;
+}
+.back:active{transform:translateY(2px);box-shadow:0 1px 0 #e7dbcb}
+.title{font-size:19px;font-weight:800;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.starbox{
+  display:flex;align-items:center;gap:5px;background:#fff;
+  padding:9px 14px;border-radius:16px;font-weight:800;font-size:17px;
+  box-shadow:0 3px 0 #e7dbcb;flex:0 0 auto;
+}
+.starbox .s{font-size:19px}
+.starbox.pop{animation:pop .45s ease}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.28)}100%{transform:scale(1)}}
+
+/* ---------- home ---------- */
+.hero{text-align:center;padding:14px 0 22px}
+.hero h1{font-size:32px;margin:0 0 6px;letter-spacing:1px}
+.hero p{margin:0;color:var(--soft);font-size:15px}
+.hero .faces{font-size:40px;letter-spacing:2px;margin-bottom:6px}
+
+.unitgrid{display:grid;gap:16px}
+.unit{
+  border:none;text-align:left;width:100%;
+  background:var(--card);border-radius:var(--r);padding:18px;
+  display:flex;align-items:center;gap:16px;cursor:pointer;
+  box-shadow:0 5px 0 #e7dbcb;position:relative;overflow:hidden;
+  font-family:inherit;color:inherit;
+}
+.unit:active{transform:translateY(3px);box-shadow:0 2px 0 #e7dbcb}
+.unit .icon{
+  width:74px;height:74px;flex:0 0 auto;border-radius:20px;
+  display:grid;place-items:center;font-size:40px;
+}
+.unit .meta{flex:1;min-width:0}
+.unit .no{font-size:12px;font-weight:800;letter-spacing:2px;opacity:.75}
+.unit .nm{font-size:20px;font-weight:800;margin:2px 0 3px}
+.unit .en{font-size:13px;color:var(--soft);font-weight:600}
+.bar{height:9px;border-radius:9px;background:#f0e7db;margin-top:9px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:9px;transition:width .5s cubic-bezier(.2,.9,.3,1.2)}
+.unit .badge{position:absolute;top:10px;right:12px;font-size:24px}
+
+.shelf{background:#fff;border-radius:var(--r);padding:16px 18px;margin-top:20px;box-shadow:0 5px 0 #e7dbcb}
+.shelf h3{margin:0 0 10px;font-size:16px}
+.badges{display:flex;gap:10px;flex-wrap:wrap}
+.bg{
+  width:60px;height:60px;border-radius:18px;display:grid;place-items:center;
+  font-size:30px;background:#f4ece2;filter:grayscale(1);opacity:.45;
+}
+.bg.on{filter:none;opacity:1;background:#fff6dc;box-shadow:0 0 0 3px var(--gold) inset}
+
+/* ---------- unit menu ---------- */
+.banner{border-radius:var(--r);padding:20px;color:#fff;margin-bottom:18px;text-align:center}
+.banner .bi{font-size:52px;line-height:1}
+.banner h2{margin:6px 0 2px;font-size:24px}
+.banner p{margin:0;opacity:.92;font-size:14px;font-weight:600}
+
+.acts{display:grid;gap:13px}
+.act{
+  border:none;font-family:inherit;color:inherit;text-align:left;
+  background:#fff;border-radius:var(--r);padding:16px;display:flex;
+  align-items:center;gap:14px;cursor:pointer;box-shadow:0 5px 0 #e7dbcb;width:100%;
+}
+.act:active{transform:translateY(3px);box-shadow:0 2px 0 #e7dbcb}
+.act .ai{width:56px;height:56px;border-radius:17px;display:grid;place-items:center;font-size:29px;flex:0 0 auto;background:#f6efe6}
+.act .at{flex:1}
+.act .at b{display:block;font-size:18px}
+.act .at span{font-size:13px;color:var(--soft)}
+.act .ck{font-size:24px;opacity:.25}
+.act .ck.on{opacity:1}
+
+/* ---------- teach cards ---------- */
+.tcard{
+  background:#fff;border-radius:26px;padding:26px 20px;text-align:center;
+  box-shadow:0 6px 0 #e7dbcb;margin-bottom:16px;animation:slide .35s ease;
+}
+@keyframes slide{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+.chtag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:1px;padding:5px 11px;border-radius:10px;background:#f4ece2;color:#8a7a68;margin-bottom:10px}
+.scene{position:relative;width:200px;height:150px;margin:0 auto 8px}
+.sbox{position:absolute;width:80px;height:54px;border:5px solid #c39a68;background:#f8e8ce;border-radius:10px;z-index:1;box-sizing:border-box}
+.sball{position:absolute;font-size:34px;line-height:1;transform:translate(-50%,-50%)}
+.tcard .pic{font-size:82px;line-height:1.15;margin-bottom:10px}
+.tcard .en{font-size:29px;font-weight:800;margin-bottom:6px;line-height:1.3}
+.tcard .en em{font-style:normal;color:var(--u1);text-decoration:underline;text-decoration-thickness:4px;text-underline-offset:5px}
+.tcard .zh{font-size:18px;color:var(--soft);font-weight:600;margin-bottom:16px}
+.speak{
+  border:none;font-family:inherit;cursor:pointer;
+  background:var(--gold);color:#5b4400;font-weight:800;font-size:17px;
+  padding:13px 26px;border-radius:18px;box-shadow:0 4px 0 #d9a015;
+}
+.speak:active{transform:translateY(3px);box-shadow:0 1px 0 #d9a015}
+.tip{background:#fff9e6;border-radius:18px;padding:14px 16px;font-size:15px;font-weight:600;line-height:1.7;box-shadow:0 4px 0 #f0e2bd;margin-bottom:16px}
+.tip b{color:#c47b00}
+.dots{display:flex;justify-content:center;gap:7px;margin:4px 0 16px}
+.dots i{width:9px;height:9px;border-radius:50%;background:#e2d5c4}
+.dots i.on{background:var(--u1);width:24px;border-radius:9px}
+.nav{display:flex;gap:12px}
+.btn{
+  flex:1;border:none;font-family:inherit;cursor:pointer;
+  padding:16px;border-radius:18px;font-size:17px;font-weight:800;
+  background:#fff;color:var(--ink);box-shadow:0 4px 0 #e7dbcb;
+}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 #e7dbcb}
+.btn.pri{background:var(--u1);color:#fff;box-shadow:0 4px 0 #d96c22}
+.btn.pri:active{box-shadow:0 1px 0 #d96c22}
+.btn[disabled]{opacity:.4;pointer-events:none}
+
+/* ---------- quiz ---------- */
+.qhead{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:800;color:var(--soft);margin-bottom:10px}
+.qcard{background:#fff;border-radius:26px;padding:24px 20px;text-align:center;box-shadow:0 6px 0 #e7dbcb;margin-bottom:16px}
+.qcard .pic{font-size:70px;margin-bottom:8px}
+.qcard .sent{font-size:26px;font-weight:800;line-height:1.5;margin-bottom:6px}
+.blank{display:inline-block;min-width:88px;border-bottom:5px solid var(--u1);color:transparent}
+.blank.filled{color:var(--good);border-color:var(--good)}
+.qcard .zh{font-size:15px;color:var(--soft);font-weight:600}
+.opts{display:grid;gap:12px}
+.opt{
+  border:none;font-family:inherit;cursor:pointer;width:100%;
+  background:#fff;padding:18px;border-radius:20px;font-size:22px;font-weight:800;
+  box-shadow:0 5px 0 #e7dbcb;color:var(--ink);
+}
+.opt:active{transform:translateY(3px);box-shadow:0 2px 0 #e7dbcb}
+.opt.ok{background:var(--goodb);color:var(--good);box-shadow:0 5px 0 #b6e6cf}
+.opt.no{background:var(--badb);color:var(--bad);box-shadow:0 5px 0 #f7c3ba;animation:shake .4s}
+.opt.dim{opacity:.4}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-9px)}40%{transform:translateX(9px)}60%{transform:translateX(-6px)}80%{transform:translateX(6px)}}
+.fb{border-radius:20px;padding:15px 17px;font-size:16px;font-weight:700;line-height:1.65;margin-top:14px;animation:slide .3s ease}
+.fb.ok{background:var(--goodb);color:#1d7a4b}
+.fb.no{background:var(--badb);color:#b23a28}
+
+/* ---------- drag / match / fill ---------- */
+.hintline{text-align:center;font-size:14px;color:var(--soft);font-weight:700;margin-bottom:14px}
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+@media(max-width:420px){.mgrid{grid-template-columns:repeat(2,1fr)}}
+.mcard{background:#fff;border-radius:20px;padding:12px 8px;text-align:center;box-shadow:0 5px 0 #e7dbcb}
+.mcard .pic{font-size:46px;line-height:1.1}
+.slot{
+  margin-top:9px;min-height:46px;border-radius:14px;border:3px dashed #ddd0be;
+  display:grid;place-items:center;font-size:16px;font-weight:800;color:#c3b5a3;
+  padding:4px 6px;word-break:break-word;
+}
+.slot.hot{border-color:var(--u1);background:#fff2e6;transform:scale(1.05)}
+.slot.done{border:3px solid var(--good);background:var(--goodb);color:var(--good)}
+.slot.wrong{border-color:var(--bad);background:var(--badb);color:var(--bad);animation:shake .4s}
+
+.fsent{background:#fff;border-radius:22px;padding:20px 16px;box-shadow:0 5px 0 #e7dbcb;margin-bottom:12px;display:flex;gap:12px;align-items:center}
+.fsent .pic{font-size:40px;flex:0 0 auto}
+.fsent .body{flex:1}
+.fsent .line{font-size:21px;font-weight:800;line-height:1.9}
+.fsent .zh{font-size:13px;color:var(--soft);font-weight:600;margin-top:4px}
+.islot{
+  display:inline-grid;place-items:center;vertical-align:middle;
+  min-width:92px;height:42px;border-radius:12px;border:3px dashed #ddd0be;
+  color:#c3b5a3;font-size:18px;padding:0 8px;margin:0 3px;
+}
+.islot.hot{border-color:var(--u1);background:#fff2e6}
+.islot.done{border:3px solid var(--good);background:var(--goodb);color:var(--good)}
+.islot.wrong{border-color:var(--bad);background:var(--badb);color:var(--bad);animation:shake .4s}
+
+.bank{
+  position:fixed;left:0;right:0;bottom:0;z-index:25;
+  background:#fff;border-radius:26px 26px 0 0;padding:14px 16px calc(16px + env(safe-area-inset-bottom));
+  box-shadow:0 -6px 24px rgba(0,0,0,.1);
+  display:flex;gap:10px;flex-wrap:wrap;justify-content:center;
+  max-width:760px;margin:0 auto;
+}
+.chip{
+  background:var(--u1);color:#fff;font-weight:800;font-size:19px;
+  padding:13px 20px;border-radius:16px;box-shadow:0 4px 0 rgba(0,0,0,.18);
+  cursor:grab;touch-action:none;user-select:none;
+}
+.chip.sel{outline:4px solid var(--gold);transform:translateY(-4px)}
+.chip.dragging{opacity:.3}
+.chip.used{visibility:hidden}
+.chip.ghost{position:fixed;z-index:999;pointer-events:none;opacity:.95;transform:scale(1.1) rotate(-3deg);margin:0}
+
+/* ---------- done ---------- */
+.done{background:#fff;border-radius:26px;padding:36px 22px;text-align:center;box-shadow:0 6px 0 #e7dbcb}
+.done .big{font-size:78px;animation:bounce .7s ease}
+@keyframes bounce{0%{transform:scale(.3);opacity:0}60%{transform:scale(1.2)}100%{transform:scale(1)}}
+.done h2{font-size:26px;margin:10px 0 6px}
+.done p{color:var(--soft);font-weight:600;margin:0 0 8px}
+.done .got{font-size:34px;letter-spacing:4px;margin:12px 0 20px}
+
+.conf{position:fixed;top:-20px;font-size:24px;z-index:900;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(105vh) rotate(540deg);opacity:.1}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="bankwrap"></div>
+
+<script>
+/* =========================================================
+   資料：依 Basic English Grammar (Azar) 4th Ed. Ch1–4
+   ========================================================= */
+const UNITS = [
+{
+  id:1, no:"UNIT 1", name:"Be 動詞", en:"Chapter 1 · Using Be",
+  emoji:"🧒", c:"--u1", cb:"--u1b", hex:"#ff8a3d", badge:"🏅",
+  rule:"I 配 <b>am</b>　He / She / It 配 <b>is</b>　You / We / They 配 <b>are</b>",
+  teach:[
+    {ch:"1-1", pic:"🙋", en:["I ","am"," late."], zh:"我遲到了。", tip:"看到 <b>I</b> 就用 <b>am</b>，永遠不變。"},
+    {ch:"1-1", pic:"👩", en:["She ","is"," late."], zh:"她遲到了。", tip:"Maria is late. → <b>She</b> is late.　「她」用 <b>is</b>。"},
+    {ch:"1-1", pic:"👨", en:["He ","is"," late."], zh:"他遲到了。", tip:"Tom is late. → <b>He</b> is late.　「他」用 <b>is</b>。"},
+    {ch:"1-1", pic:"🚌", en:["It ","is"," late."], zh:"它遲到了。", tip:"Bus 10 is late. → <b>It</b> is late.　東西、動物用 <b>It</b>。"},
+    {ch:"1-2", pic:"👨‍👩‍👧", en:["We ","are"," here."], zh:"我們在這裡。", tip:"Sam and I ＝ <b>We</b>。兩個人以上用 <b>are</b>。"},
+    {ch:"1-2", pic:"👬", en:["They ","are"," here."], zh:"他們在這裡。", tip:"Sam and Lisa ＝ <b>They</b>，用 <b>are</b>。"},
+    {ch:"1-3", pic:"🍁", en:["Canada is ","a"," country."], zh:"加拿大是一個國家。", tip:"一個東西前面要加 <b>a</b>。不可以說 Canada is country。"},
+    {ch:"1-3", pic:"🏝️", en:["Bali is ","an"," island."], zh:"峇里島是一座島。", tip:"開頭發 <b>a / e / i / o</b> 的音要用 <b>an</b>：an island、an animal、an ear。"},
+    {ch:"1-4", pic:"🐱🐱", en:["Cats ","are"," animals."], zh:"貓是動物。", tip:"很多個 → 名詞加 <b>s</b>，動詞用 <b>are</b>：cat<b>s</b> are animal<b>s</b>。"},
+    {ch:"1-5", pic:"🎒", en:["I","'m"," a student."], zh:"我是學生。", tip:"I am → <b>I'm</b>；she is → <b>she's</b>；they are → <b>they're</b>。"},
+    {ch:"1-6", pic:"👨‍🚀", en:["I ","am not"," an astronaut."], zh:"我不是太空人。", tip:"要說「不是」，在 be 後面加 <b>not</b>。也可寫 <b>I'm not</b>、<b>isn't</b>、<b>aren't</b>。"},
+    {ch:"1-7", pic:"⚽", en:["A ball is ","round","."], zh:"球是圓的。", tip:"be 後面可以放<b>形容詞</b>，說它長什麼樣子。"},
+    {ch:"1-8", pic:"📚", en:["Bob is ","at the library","."], zh:"Bob 在圖書館。", tip:"be 後面也可以放<b>地方</b>：here、there、at work、in his room。"},
+    {ch:"1-9", pic:"🧩", en:["I am ","a student","."], zh:"我是學生。", tip:"be 後面三選一：<b>名詞</b>（a student）、<b>形容詞</b>（hungry）、<b>地方</b>（in class）。"}
+  ],
+  quiz:[
+    {ch:"1-1", pic:"🙋", a:"He", b:"here.", zh:"他在這裡。", o:["am","is","are"], k:1, why:"<b>He</b> 是一個人 → <b>is</b>。"},
+    {ch:"1-1", pic:"🥵", a:"I", b:"hot.", zh:"我好熱。", o:["am","is","are"], k:0, why:"<b>I</b> 一定配 <b>am</b>。"},
+    {ch:"1-2", pic:"👨‍👩‍👧", a:"We", b:"ready.", zh:"我們準備好了。", o:["am","is","are"], k:2, why:"<b>We</b> 是很多人 → <b>are</b>。"},
+    {ch:"1-2", pic:"🤒", a:"They", b:"sick.", zh:"他們生病了。", o:["am","is","are"], k:2, why:"<b>They</b> → <b>are</b>。"},
+    {ch:"1-3", pic:"🏝️", a:"Bali is", b:"island.", zh:"峇里島是一座島。", o:["a","an"], k:1, why:"island 開頭是母音 <b>i</b> → 用 <b>an</b>。"},
+    {ch:"1-3", pic:"🐕", a:"A dog is", b:"animal.", zh:"狗是一種動物。", o:["a","an"], k:1, why:"animal 開頭是母音 <b>a</b> → 用 <b>an</b>。"},
+    {ch:"1-4", pic:"🐦🐦", a:"Birds", b:"animals.", zh:"鳥是動物。", o:["is","are"], k:1, why:"Bird<b>s</b> 是很多隻 → <b>are</b>。"},
+    {ch:"1-4", pic:"📖", a:"A dictionary", b:"a book.", zh:"字典是一種書。", o:["is","are"], k:0, why:"只有一本 → <b>is</b>。"},
+    {ch:"1-5", pic:"🧑‍🎓", a:"Sara is a student.", b:"in my class.", zh:"Sara 是學生，她在我班上。", o:["He's","She's","It's"], k:1, why:"Sara 是女生 → she is → <b>She's</b>。"},
+    {ch:"1-6", pic:"🧊", a:"Ice", b:"hot.", zh:"冰不是熱的。", o:["is","isn't"], k:1, why:"冰是冷的，要用否定 <b>isn't</b>。"},
+    {ch:"1-7", pic:"🔥", a:"Fire", b:"hot.", zh:"火是燙的。", o:["is","are"], k:0, why:"Fire 是一個 → <b>is</b>；hot 是形容詞。"},
+    {ch:"1-8", scene:"on", a:"The ball is", b:"the box.", zh:"球在盒子上面。", o:["in","on","under","next to"], k:1, why:"在上面而且有碰到 → <b>on</b>。"},
+    {ch:"1-8", scene:"in", a:"The ball is", b:"the box.", zh:"球在盒子裡面。", o:["in","on","under","next to"], k:0, why:"在裡面 → <b>in</b>。"},
+    {ch:"1-8", scene:"under", a:"The ball is", b:"the box.", zh:"球在盒子下面。", o:["in","on","under","next to"], k:2, why:"在下面 → <b>under</b>。"},
+    {ch:"1-8", scene:"next to", a:"The ball is", b:"the box.", zh:"球在盒子旁邊。", o:["in","on","under","next to"], k:3, why:"在旁邊 → <b>next to</b>。"},
+    {ch:"1-8", scene:"above", a:"The ball is", b:"the box.", zh:"球在盒子上方（沒碰到）。", o:["on","above","under","behind"], k:1, why:"在上方但沒碰到 → <b>above</b>；碰到才是 on。"},
+    {ch:"1-8", scene:"between", a:"The ball is", b:"the boxes.", zh:"球在兩個盒子中間。", o:["behind","between","next to","above"], k:1, why:"在兩個東西中間 → <b>between</b>。"}
+  ],
+  match:[
+    {pic:"🐱", w:"cat"},{pic:"🐶", w:"dog"},{pic:"🐦", w:"bird"},
+    {pic:"🐘", w:"elephant"},{pic:"🐭", w:"mouse"},{pic:"🐔", w:"chicken"}
+  ],
+  fill:[
+    {pic:"🚌", pre:"Bus 10", post:"late.", k:"is", zh:"十號公車遲到了。"},
+    {pic:"👭", pre:"Amy and I", post:"late.", k:"are", zh:"Amy 和我遲到了。"},
+    {pic:"🍁", pre:"Canada is", post:"country.", k:"a", zh:"加拿大是一個國家。"},
+    {pic:"🏝️", pre:"Bali is", post:"island.", k:"an", zh:"峇里島是一座島。"},
+    {pic:"🐱🐱", pre:"Cats", post:"animals.", k:"are", zh:"貓是動物。"},
+    {pic:"🍋", pre:"A lemon", post:"sour.", k:"is", zh:"檸檬是酸的。"}
+  ]
+},
+{
+  id:2, no:"UNIT 2", name:"問問題・我有", en:"Chapter 2 · Using Be and Have",
+  emoji:"🎒", c:"--u2", cb:"--u2b", hex:"#3fb8af", badge:"🏆",
+  rule:"問句把 <b>be</b> 搬到最前面　近的 <b>this / these</b>，遠的 <b>that / those</b>　I 有 <b>have</b>，他有 <b>has</b>",
+  teach:[
+    {ch:"2-1", pic:"❓", en:["Is"," Ana ","a student?"], zh:"Ana 是學生嗎？", tip:"Ana <b>is</b> a student. → <b>Is</b> Ana a student?　be 跑到最前面，句尾用問號 <b>?</b>。"},
+    {ch:"2-1", pic:"🏠", en:["Are"," they ","at home?"], zh:"他們在家嗎？", tip:"They <b>are</b> at home. → <b>Are</b> they at home?"},
+    {ch:"2-2", pic:"🙋‍♀️", en:["Yes, ","she is","."], zh:"對，她是。", tip:"回答 Yes 時<b>不能縮寫</b>：說 Yes, she is.　不可以說 Yes, she's."},
+    {ch:"2-2", pic:"🙅", en:["No, ","she isn't","."], zh:"不，她不是。", tip:"回答 No 可以縮寫：<b>No, she isn't.</b> 或 <b>No, she's not.</b>"},
+    {ch:"2-3", pic:"📕", en:["Where is"," the book","?"], zh:"書在哪裡？", tip:"問「在哪裡」用 <b>Where</b>，放在 be 的前面。回答：On the table."},
+    {ch:"2-4", pic:"🖊️", en:["I ","have"," a pen."], zh:"我有一枝筆。", tip:"<b>I / You / We / They</b> 用 <b>have</b>。"},
+    {ch:"2-4", pic:"🖊️", en:["She ","has"," a pen."], zh:"她有一枝筆。", tip:"<b>She / He / It</b> 要用 <b>has</b>。"},
+    {ch:"2-5", pic:"📕", en:["My"," book is red."], zh:"我的書是紅色的。", tip:"I → <b>my</b>、you → <b>your</b>、she → <b>her</b>、he → <b>his</b>、we → <b>our</b>、they → <b>their</b>。"},
+    {ch:"2-6", pic:"👉📗", en:["This"," is my book."], zh:"這是我的書。", tip:"<b>this</b> ＝ 東西在我旁邊（近）。"},
+    {ch:"2-6", pic:"👉　📘", en:["That"," is your book."], zh:"那是你的書。", tip:"<b>that</b> ＝ 東西離我比較遠。that is → <b>that's</b>。"},
+    {ch:"2-7", pic:"👉📚", en:["These"," are my books."], zh:"這些是我的書。", tip:"很多個、近的 → <b>these</b>（this 的複數）。"},
+    {ch:"2-7", pic:"👉　👟👟", en:["Those"," are her shoes."], zh:"那些是她的鞋子。", tip:"很多個、遠的 → <b>those</b>（that 的複數）。"},
+    {ch:"2-8", pic:"🖊️", en:["What is"," this?"], zh:"這是什麼？", tip:"問<b>東西</b>用 <b>What</b>。回答：It's a pen."},
+    {ch:"2-8", pic:"🧑", en:["Who is"," that?"], zh:"那是誰？", tip:"問<b>人</b>用 <b>Who</b>。回答：That's Mr. Lee."}
+  ],
+  quiz:[
+    {ch:"2-1", pic:"😴", a:"", b:"you tired?", zh:"你累了嗎？", o:["Am","Is","Are"], k:2, why:"<b>you</b> 配 <b>are</b> → 問句是 <b>Are</b> you tired?"},
+    {ch:"2-1", pic:"⏰", a:"", b:"he late?", zh:"他遲到了嗎？", o:["Am","Is","Are"], k:1, why:"<b>he</b> 配 <b>is</b> → <b>Is</b> he late?"},
+    {ch:"2-2", pic:"✅", a:"Is Kari a student? —", b:"", zh:"Kari 是學生嗎？——對，她是。", o:["Yes, she's.","Yes, she is."], k:1, why:"Yes 的短答<b>不能縮寫</b>，要說完整的 <b>Yes, she is.</b>"},
+    {ch:"2-2", pic:"🙋", a:"Are you ready? —", b:"", zh:"你準備好了嗎？——還沒。", o:["No, I amn't.","No, I'm not."], k:1, why:"am 和 not <b>不能</b>縮成一個字，只能說 <b>I'm not</b>。"},
+    {ch:"2-3", pic:"👓", a:"", b:"are my glasses?", zh:"我的眼鏡在哪裡？", o:["What","Where","Who"], k:1, why:"問地方用 <b>Where</b>。"},
+    {ch:"2-4", pic:"🚲", a:"I", b:"a bike.", zh:"我有一台腳踏車。", o:["have","has"], k:0, why:"<b>I</b> 用 <b>have</b>。"},
+    {ch:"2-4", pic:"🏍️", a:"He", b:"a motorcycle.", zh:"他有一台機車。", o:["have","has"], k:1, why:"<b>He</b> 要把 have 變成 <b>has</b>。"},
+    {ch:"2-4", pic:"🚚", a:"They", b:"trucks.", zh:"他們有卡車。", o:["have","has"], k:0, why:"<b>They</b> 是很多人 → <b>have</b>。"},
+    {ch:"2-5", pic:"👚", a:"Malena has on a blouse.", b:"blouse is light blue.", zh:"Malena 穿著上衣，她的上衣是淺藍色。", o:["His","Her","Their"], k:1, why:"Malena 是女生 → she → <b>Her</b>。"},
+    {ch:"2-5", pic:"👢👢", a:"Kiril and Oleg have on boots.", b:"boots are brown.", zh:"Kiril 和 Oleg 穿著靴子，他們的靴子是棕色。", o:["His","Our","Their"], k:2, why:"兩個人 → they → <b>Their</b>。"},
+    {ch:"2-6", pic:"👉✏️", a:"", b:"is a pen.", zh:"這是一枝筆。（在手上）", o:["This","That"], k:0, why:"東西在手上、很近 → <b>This</b>。"},
+    {ch:"2-6", pic:"👉　✏️", a:"", b:"is a pencil.", zh:"那是一枝鉛筆。（在遠方）", o:["This","That"], k:1, why:"東西在遠處 → <b>That</b>。"},
+    {ch:"2-7", pic:"👉📚", a:"", b:"are my books.", zh:"這些是我的書。（在手邊）", o:["This","These","Those"], k:1, why:"很多本又很近 → <b>These</b>。"},
+    {ch:"2-7", pic:"👉　👠👠", a:"", b:"are her shoes.", zh:"那些是她的鞋子。（在遠方）", o:["That","These","Those"], k:2, why:"很多雙又很遠 → <b>Those</b>。"},
+    {ch:"2-7", pic:"🛏️", a:"Those sheets", b:"for you.", zh:"那些床單是給你的。", o:["is","are"], k:1, why:"sheet<b>s</b> 是很多條 → <b>are</b>。"},
+    {ch:"2-8", pic:"📷", a:"", b:"this? — It's my new camera.", zh:"這是什麼？——是我的新相機。", o:["What is","Who is"], k:0, why:"問<b>東西</b>用 <b>What</b>。"},
+    {ch:"2-8", pic:"👩", a:"", b:"that woman? — She's my sister.", zh:"那位女士是誰？——她是我姊姊。", o:["What is","Who is"], k:1, why:"問<b>人</b>用 <b>Who</b>。"},
+    {ch:"2-8", pic:"🦇🦇", a:"", b:"bats? — They're animals with wings.", zh:"蝙蝠是什麼？——是有翅膀的動物。", o:["What is","What are"], k:1, why:"bat<b>s</b> 是複數 → <b>What are</b>。"}
+  ],
+  match:[
+    {pic:"👀", w:"eye"},{pic:"👃", w:"nose"},{pic:"👂", w:"ear"},
+    {pic:"✋", w:"hand"},{pic:"🦶", w:"foot"},{pic:"🦷", w:"tooth"}
+  ],
+  fill:[
+    {pic:"🎓", pre:"", post:"Ana a student?", k:"Is", zh:"Ana 是學生嗎？"},
+    {pic:"🏠", pre:"", post:"they at home?", k:"Are", zh:"他們在家嗎？"},
+    {pic:"📱", pre:"My teacher", post:"a cell phone.", k:"has", zh:"我的老師有一支手機。"},
+    {pic:"🎒", pre:"Many students", post:"backpacks.", k:"have", zh:"很多學生有背包。"},
+    {pic:"👉📗", pre:"", post:"is my book.", k:"This", zh:"這是我的書。"},
+    {pic:"👉　👟👟", pre:"", post:"are your shoes.", k:"Those", zh:"那些是你的鞋子。"}
+  ]
+},
+{
+  id:3, no:"UNIT 3", name:"我每天做的事", en:"Chapter 3 · Simple Present",
+  emoji:"🌞", c:"--u3", cb:"--u3b", hex:"#7c6cf0", badge:"⭐",
+  rule:"每天固定做的事用現在簡單式　主詞是 <b>He / She / It</b> 時，動詞要加 <b>-s</b>",
+  teach:[
+    {ch:"3-1", pic:"🍞", en:["I ","eat"," breakfast every morning."], zh:"我每天早上吃早餐。", tip:"每天固定做的「習慣」就用現在簡單式。<b>I</b> 的動詞不加 s。"},
+    {ch:"3-1", pic:"🗣️", en:["Olga ","speaks"," English every day."], zh:"Olga 每天說英文。", tip:"主詞是 he / she / it 時，動詞屁股要加 <b>-s</b>：speak → speak<b>s</b>。"},
+    {ch:"3-2", pic:"💯", en:["Ivan ","always"," eats breakfast."], zh:"Ivan 總是吃早餐。", tip:"次數副詞：<b>always</b>(100%)、usually、often、sometimes(50%)、seldom、rarely、<b>never</b>(0%)。"},
+    {ch:"3-3", pic:"🚶", en:["Tom always ","comes"," late."], zh:"Tom 總是遲到。", tip:"一般動詞：次數副詞放在<b>動詞前面</b>。"},
+    {ch:"3-3", pic:"⏰", en:["Anita ","is always"," on time."], zh:"Anita 總是準時。", tip:"但遇到 <b>be 動詞</b>，次數副詞要放在<b>後面</b>：is always。"},
+    {ch:"3-4", pic:"👩‍🏫", en:["Alex ","teaches"," English."], zh:"Alex 教英文。", tip:"字尾是 <b>-sh, -ch, -ss, -x</b> 要加 <b>-es</b>：push<b>es</b>、teach<b>es</b>、kiss<b>es</b>、fix<b>es</b>。"},
+    {ch:"3-5", pic:"🐦", en:["A bird ","flies","."], zh:"鳥會飛。", tip:"子音 + <b>y</b> → y 變 i 再加 es：fl<b>ies</b>、cr<b>ies</b>、tr<b>ies</b>。"},
+    {ch:"3-5", pic:"💵", en:["Gina ","pays"," bills."], zh:"Gina 付帳單。", tip:"母音 + y → 直接加 s：pa<b>ys</b>、enjo<b>ys</b>、pla<b>ys</b>。"},
+    {ch:"3-6", pic:"🚗", en:["Mrs. Chang ","has"," a car."], zh:"Chang 太太有一台車。", tip:"三個特別的字：have → <b>has</b>、do → <b>does</b>、go → <b>goes</b>。"},
+    {ch:"3-6", pic:"🏫", en:["Andy ","goes"," to school every day."], zh:"Andy 每天去上學。", tip:"go 加的是 <b>es</b> → goes。"},
+    {ch:"3-7", pic:"✈️", en:["I ","like to"," travel."], zh:"我喜歡旅行。", tip:"<b>like to / want to / need to</b> 後面接動詞原形。"},
+    {ch:"3-8", pic:"☕", en:["I ","don't"," drink coffee."], zh:"我不喝咖啡。", tip:"要說「不」，前面加 <b>don't</b>，動詞回原形。"},
+    {ch:"3-8", pic:"☕", en:["He ","doesn't"," drink coffee."], zh:"他不喝咖啡。", tip:"He / She / It 用 <b>doesn't</b>，後面動詞<b>不能</b>再加 s。"},
+    {ch:"3-9", pic:"🐟", en:["Do"," you like fish?"], zh:"你喜歡魚嗎？", tip:"問句最前面加 <b>Do</b>（I/you/we/they）或 <b>Does</b>（he/she/it）。"},
+    {ch:"3-9", pic:"✅", en:["Yes, ","I do","."], zh:"對，我喜歡。", tip:"短答用 <b>do / don't / does / doesn't</b>：Yes, he <b>does</b>. No, he <b>doesn't</b>."},
+    {ch:"3-10", pic:"🏠", en:["Where"," do you live?"], zh:"你住在哪裡？", tip:"問地方用 <b>Where</b>，放在 do / does 前面。"},
+    {ch:"3-11", pic:"🕘", en:["What time"," does class begin?"], zh:"幾點上課？", tip:"問時間用 <b>When</b> 或 <b>What time</b>。"}
+  ],
+  quiz:[
+    {ch:"3-1", pic:"🗣️", a:"Martin", b:"English.", zh:"Martin 說英文。", o:["speak","speaks"], k:1, why:"Martin 是一個人（he）→ <b>speaks</b>。"},
+    {ch:"3-1", pic:"🍳", a:"My mother and father", b:"breakfast at 7:00.", zh:"我爸媽七點吃早餐。", o:["eat","eats"], k:0, why:"兩個人（they）→ 動詞<b>不加 s</b>。"},
+    {ch:"3-2", pic:"🍵", a:"Ana drinks tea every day. She", b:"drinks tea.", zh:"Ana 每天喝茶，她總是喝茶。", o:["never","sometimes","always"], k:2, why:"每天都做 ＝ 100% → <b>always</b>。"},
+    {ch:"3-3", pic:"⏰", a:"Anita", b:"on time for class.", zh:"Anita 上課總是準時。", o:["always is","is always"], k:1, why:"遇到 be 動詞，次數副詞放<b>後面</b> → <b>is always</b>。"},
+    {ch:"3-3", pic:"🚪", a:"Anita", b:"to class on time.", zh:"Anita 總是準時來上課。", o:["always comes","comes always"], k:0, why:"一般動詞，次數副詞放<b>前面</b> → <b>always comes</b>。"},
+    {ch:"3-4", pic:"🧼", a:"Eric seldom", b:"dishes.", zh:"Eric 很少洗碗。", o:["wash","washes"], k:1, why:"Eric 是 he，wash 字尾是 <b>-sh</b> → 加 <b>-es</b>。"},
+    {ch:"3-4", pic:"💇", a:"Arianna", b:"her hair every morning.", zh:"Arianna 每天早上梳頭髮。", o:["brushs","brushes"], k:1, why:"字尾 <b>-sh</b> 要加 <b>-es</b> → brush<b>es</b>。"},
+    {ch:"3-5", pic:"😢", a:"Her new baby", b:"during the night.", zh:"她的寶寶晚上會哭。", o:["crys","cries"], k:1, why:"子音 + y → y 變 i 加 es → <b>cries</b>。"},
+    {ch:"3-5", pic:"🎾", a:"Monique", b:"tennis every week.", zh:"Monique 每週打網球。", o:["plaies","plays"], k:1, why:"母音 + y → 直接加 s → <b>plays</b>。"},
+    {ch:"3-6", pic:"🏫", a:"Andy", b:"to school every day.", zh:"Andy 每天去上學。", o:["gos","goes"], k:1, why:"go 是特別的字 → <b>goes</b>。"},
+    {ch:"3-6", pic:"📝", a:"Pierre always", b:"his homework.", zh:"Pierre 總是做功課。", o:["do","does"], k:1, why:"Pierre 是 he，do → <b>does</b>。"},
+    {ch:"3-7", pic:"📚", a:"Maya needs", b:".", zh:"Maya 需要念書。", o:["study","to study"], k:1, why:"need / want / like 後面要加 <b>to</b> + 原形動詞。"},
+    {ch:"3-8", pic:"🥛", a:"She", b:"like milk.", zh:"她不喜歡牛奶。", o:["do not","does not"], k:1, why:"<b>She</b> 要用 <b>does not</b>（doesn't）。"},
+    {ch:"3-8", pic:"📺", a:"We", b:"have a TV.", zh:"我們沒有電視。", o:["don't","doesn't"], k:0, why:"<b>We</b> 用 <b>don't</b>。"},
+    {ch:"3-9", pic:"🍵", a:"", b:"you like tea?", zh:"你喜歡茶嗎？", o:["Do","Does"], k:0, why:"<b>you</b> 用 <b>Do</b>。"},
+    {ch:"3-9", pic:"🇮🇹", a:"", b:"Anita speak Italian?", zh:"Anita 說義大利文嗎？", o:["Do","Does"], k:1, why:"Anita 是 she → <b>Does</b>。"},
+    {ch:"3-9", pic:"❓", a:"Does she", b:"here?", zh:"她在這裡工作嗎？", o:["work","works"], k:0, why:"已經有 Does 了，動詞就<b>不加 s</b>。不能說 Does she works?"},
+    {ch:"3-9", pic:"✅", a:"Do you like tea? —", b:"", zh:"你喜歡茶嗎？——對，我喜歡。", o:["Yes, I like.","Yes, I do."], k:1, why:"短答要用 <b>do</b>，不是重複動詞。"}
+  ],
+  match:[
+    {pic:"🍽️", w:"eat"},{pic:"😴", w:"sleep"},{pic:"📚", w:"study"},
+    {pic:"🚶", w:"walk"},{pic:"🧼", w:"wash"},{pic:"🪥", w:"brush"}
+  ],
+  fill:[
+    {pic:"🍞", pre:"Ivan", post:"eats breakfast.", k:"always", zh:"Ivan 總是吃早餐。"},
+    {pic:"👩‍🏫", pre:"Alex", post:"English.", k:"teaches", zh:"Alex 教英文。"},
+    {pic:"🐦", pre:"A bird", post:".", k:"flies", zh:"鳥會飛。"},
+    {pic:"🏫", pre:"Andy", post:"to school.", k:"goes", zh:"Andy 去上學。"},
+    {pic:"☕", pre:"He", post:"drink coffee.", k:"doesn't", zh:"他不喝咖啡。"},
+    {pic:"🍵", pre:"", post:"you like tea?", k:"Do", zh:"你喜歡茶嗎？"}
+  ]
+},
+{
+  id:4, no:"UNIT 4", name:"我正在做", en:"Chapter 4 · Present Progressive",
+  emoji:"🏃", c:"--u4", cb:"--u4b", hex:"#ef5da8", badge:"👑",
+  rule:"「現在正在做」＝ <b>be 動詞</b>（am / is / are）＋ 動詞加 <b>-ing</b>",
+  teach:[
+    {ch:"4-1", pic:"🌧️", en:["It is ","raining","."], zh:"正在下雨。", tip:"現在正在發生 ＝ <b>be + 動詞-ing</b>。兩個都要有！"},
+    {ch:"4-1", pic:"🪑", en:["I am ","sitting"," in class."], zh:"我正坐在教室裡。", tip:"I → <b>am</b> + sitting。"},
+    {ch:"4-2", pic:"🌦️", en:["rain → ","raining",""], zh:"直接加 -ing", tip:"大部分動詞<b>直接加 -ing</b>：rain → raining。"},
+    {ch:"4-2", pic:"😊", en:["smile → ","smiling",""], zh:"去掉 e 再加 -ing", tip:"字尾是 <b>e</b> → 去掉 e 再加 ing：smil<b>ing</b>、writ<b>ing</b>。"},
+    {ch:"4-2", pic:"🪑", en:["sit → ","sitting",""], zh:"最後一個字母要寫兩次", tip:"「子音-母音-子音」→ 最後字母<b>寫兩次</b>：si<b>tt</b>ing、ru<b>nn</b>ing。"},
+    {ch:"4-2", pic:"🧍", en:["stand → ","standing",""], zh:"兩個子音就直接加", tip:"字尾有<b>兩個子音</b> → 直接加 ing：sta<b>nd</b>ing、pu<b>sh</b>ing。"},
+    {ch:"4-3", pic:"☀️", en:["It ","isn't"," raining."], zh:"沒有在下雨。", tip:"否定：在 be 後面加 <b>not</b> → isn't raining。"},
+    {ch:"4-4", pic:"❓", en:["Is"," it raining?"], zh:"正在下雨嗎？", tip:"問句把 <b>be</b> 搬到最前面。"},
+    {ch:"4-4", pic:"🔎", en:["Where is"," Rosa sitting?"], zh:"Rosa 坐在哪裡？", tip:"問地方：<b>Where</b> + be + 主詞 + -ing。"},
+    {ch:"4-5", pic:"📅", en:["I ","eat"," breakfast every morning."], zh:"我每天早上吃早餐。（習慣）", tip:"<b>每天固定</b>做的事 → 現在簡單式。"},
+    {ch:"4-5", pic:"🍽️", en:["I ","am eating"," breakfast now."], zh:"我現在正在吃早餐。（此刻）", tip:"<b>此時此刻</b>正在做 → 現在進行式。"},
+    {ch:"4-6", pic:"❤️", en:["I ","like"," ice cream."], zh:"我喜歡冰淇淋。", tip:"like、want、need、know、have 是<b>非動作動詞</b>，不加 -ing。不能說 I am liking。"},
+    {ch:"4-7", pic:"👀", en:["I am ","looking at"," the board."], zh:"我正在看黑板。", tip:"<b>see</b> 是看見（自然發生）；<b>look at</b> 是刻意去看；<b>watch</b> 是看會動的東西。"},
+    {ch:"4-7", pic:"🎧", en:["I am ","listening to"," music."], zh:"我正在聽音樂。", tip:"<b>hear</b> 是聽見；<b>listen to</b> 是專心聽。"},
+    {ch:"4-8", pic:"💭", en:["I am ","thinking about"," my family."], zh:"我正在想我的家人。", tip:"<b>think about</b> ＝ 腦中在想；<b>think that</b> ＝ 我覺得……。"}
+  ],
+  quiz:[
+    {ch:"4-1", pic:"🥤", a:"I am", b:"juice.", zh:"我正在喝果汁。", o:["drink","drinking"], k:1, why:"be 後面要用 <b>-ing</b>。"},
+    {ch:"4-1", pic:"⚽", a:"They", b:"playing soccer.", zh:"他們正在踢足球。", o:["is","are"], k:1, why:"<b>They</b> 要配 <b>are</b>。"},
+    {ch:"4-1", pic:"📖", a:"He", b:"reading a book.", zh:"他正在看書。", o:["is","are"], k:0, why:"<b>He</b> 要配 <b>is</b>。"},
+    {ch:"4-2", pic:"✍️", a:"She is", b:"a letter.", zh:"她正在寫信。", o:["writeing","writing"], k:1, why:"write 字尾有 e → 去掉 e 加 ing → <b>writing</b>。"},
+    {ch:"4-2", pic:"🏃", a:"The dog is", b:"fast.", zh:"那隻狗正在快跑。", o:["runing","running"], k:1, why:"run → 最後字母寫兩次 → <b>running</b>。"},
+    {ch:"4-2", pic:"🌧️", a:"It is", b:"outside.", zh:"外面正在下雨。", o:["raining","rainning"], k:0, why:"rain 前面是兩個母音，<b>直接加 ing</b> → raining。"},
+    {ch:"4-3", pic:"☀️", a:"It", b:"raining now.", zh:"現在沒有在下雨。", o:["isn't","doesn't"], k:0, why:"進行式的否定用 <b>isn't</b>，不是 doesn't。"},
+    {ch:"4-4", pic:"❓", a:"", b:"you listening to me?", zh:"你在聽我說話嗎？", o:["Do","Are"], k:1, why:"進行式問句要把 <b>be</b> 搬到前面 → <b>Are</b>。"},
+    {ch:"4-5", pic:"🛏️", a:"Every night I", b:"at ten.", zh:"我每天晚上十點睡覺。", o:["sleep","am sleeping"], k:0, why:"<b>every night</b> 是習慣 → 現在簡單式。"},
+    {ch:"4-5", pic:"😴", a:"Shh! The baby", b:".", zh:"噓！寶寶正在睡覺。", o:["sleeps","is sleeping"], k:1, why:"<b>現在此刻</b>正在做 → 進行式。"},
+    {ch:"4-6", pic:"🍦", a:"I", b:"ice cream.", zh:"我喜歡冰淇淋。", o:["am liking","like"], k:1, why:"like 是非動作動詞，<b>不能</b>加 -ing。"},
+    {ch:"4-6", pic:"🚲", a:"She", b:"a new bike.", zh:"她想要一台新腳踏車。", o:["is wanting","wants"], k:1, why:"want 也是非動作動詞 → <b>wants</b>。"},
+    {ch:"4-7", pic:"📺", a:"I am", b:"TV.", zh:"我正在看電視。", o:["looking at","watching"], k:1, why:"看<b>會動</b>的東西（電視、比賽）用 <b>watch</b>。"},
+    {ch:"4-7", pic:"🎧", a:"I am", b:"music.", zh:"我正在聽音樂。", o:["hearing","listening to"], k:1, why:"專心去聽用 <b>listen to</b>；hear 是不小心聽見。"},
+    {ch:"4-8", pic:"💭", a:"I am thinking", b:"my family.", zh:"我正在想我的家人。", o:["about","that"], k:0, why:"腦中在想某人某事 → think <b>about</b>。"}
+  ],
+  match:[
+    {pic:"🕺", w:"dancing"},{pic:"🏊", w:"swimming"},{pic:"🍳", w:"cooking"},
+    {pic:"😂", w:"laughing"},{pic:"🚴", w:"riding"},{pic:"🧹", w:"cleaning"}
+  ],
+  fill:[
+    {pic:"🌧️", pre:"It is", post:"outside.", k:"raining", zh:"外面正在下雨。"},
+    {pic:"🍚", pre:"We", post:"eating rice.", k:"are", zh:"我們正在吃飯。"},
+    {pic:"🪑", pre:"I am", post:"in class.", k:"sitting", zh:"我正坐在教室裡。"},
+    {pic:"☀️", pre:"It", post:"snowing today.", k:"isn't", zh:"今天沒有在下雪。"},
+    {pic:"🍦", pre:"I", post:"ice cream.", k:"like", zh:"我喜歡冰淇淋。"},
+    {pic:"🎧", pre:"She is", post:"to music.", k:"listening", zh:"她正在聽音樂。"}
+  ]
+}
+];
+// 移除示範用的 skip 題
+UNITS[3].fill = UNITS[3].fill.filter(f=>!f.skip);
+
+const ACTS = [
+  {k:"teach", nm:"學一學", sub:"看圖片、聽發音，學會句型", i:"📖"},
+  {k:"quiz",  nm:"選一選", sub:"選出正確答案，馬上知道對不對", i:"✅"},
+  {k:"match", nm:"配一配", sub:"把英文單字拖到正確的圖片上", i:"🧩"},
+  {k:"fill",  nm:"填一填", sub:"把單字拖進空格，完成句子", i:"✏️"}
+];
+
+/* =========================================================
+   狀態
+   ========================================================= */
+const S = { stars:0, done:{}, screen:"home", unit:null, act:null, idx:0 };
+UNITS.forEach(u=>S.done[u.id]={teach:false,quiz:false,match:false,fill:false});
+
+/* 進度儲存：能存就存，不能存（隱私模式等）就只留在記憶體，絕不報錯 */
+const SAVEKEY='happy-english-v1';
+function save(){
+  try{ localStorage.setItem(SAVEKEY, JSON.stringify({stars:S.stars, done:S.done})); }catch(e){}
+}
+function load(){
+  try{
+    const raw = localStorage.getItem(SAVEKEY);
+    if(!raw) return;
+    const d = JSON.parse(raw);
+    if(typeof d.stars === 'number') S.stars = d.stars;
+    if(d.done) UNITS.forEach(u=>{ if(d.done[u.id]) Object.assign(S.done[u.id], d.done[u.id]); });
+  }catch(e){}
+}
+load();
+
+const app = document.getElementById('app');
+const bankwrap = document.getElementById('bankwrap');
+
+/* =========================================================
+   聲音
+   ========================================================= */
+let VOICES = [];
+function loadVoices(){ try{ VOICES = speechSynthesis.getVoices()||[]; }catch(e){} }
+if(window.speechSynthesis){ loadVoices(); speechSynthesis.onvoiceschanged = loadVoices; }
+function speak(text){
+  if(!window.speechSynthesis) return;
+  try{
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(String(text).replace(/\s+/g,' ').trim());
+    u.lang='en-US'; u.rate=0.72; u.pitch=1.15;
+    if(!VOICES.length) loadVoices();
+    const v = VOICES.find(v=>/en[-_]US/i.test(v.lang)) || VOICES.find(v=>/^en/i.test(v.lang));
+    if(v) u.voice = v;
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+let AC=null;
+function tone(ok){
+  try{
+    AC = AC || new (window.AudioContext||window.webkitAudioContext)();
+    const notes = ok?[660,880,1180]:[300,200];
+    notes.forEach((f,i)=>{
+      const o=AC.createOscillator(), g=AC.createGain();
+      o.type='sine'; o.frequency.value=f;
+      o.connect(g); g.connect(AC.destination);
+      const t=AC.currentTime+i*0.09;
+      g.gain.setValueAtTime(0.0001,t);
+      g.gain.exponentialRampToValueAtTime(0.16,t+0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001,t+0.16);
+      o.start(t); o.stop(t+0.18);
+    });
+  }catch(e){}
+}
+
+/* =========================================================
+   工具
+   ========================================================= */
+const SPOS = {
+  'in':      [100,75], 'on':[100,31], 'above':[100,10],
+  'under':   [100,119], 'next to':[164,75], 'behind':[86,50]
+};
+function sceneHTML(rel){
+  if(rel==='between'){
+    return '<div class="scene">'+
+      '<div class="sbox" style="left:8px;top:48px;width:62px"></div>'+
+      '<div class="sbox" style="left:130px;top:48px;width:62px"></div>'+
+      '<div class="sball" style="left:100px;top:75px;z-index:2">⚽</div></div>';
+  }
+  const p = SPOS[rel] || SPOS['in'];
+  const back = rel==='behind';
+  return '<div class="scene">'+
+    (back?'<div class="sball" style="left:'+p[0]+'px;top:'+p[1]+'px;z-index:0">⚽</div>':'')+
+    '<div class="sbox" style="left:60px;top:48px"></div>'+
+    (back?'':'<div class="sball" style="left:'+p[0]+'px;top:'+p[1]+'px;z-index:2">⚽</div>')+
+    '</div>';
+}
+function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]];} return a; }
+function addStars(n){
+  S.stars += n; save();
+  const b=document.querySelector('.starbox');
+  if(b){ b.querySelector('.n').textContent=S.stars; b.classList.remove('pop'); void b.offsetWidth; b.classList.add('pop'); }
+}
+function confetti(){
+  const e=['⭐','🎉','✨','🌟','🎊','💛'];
+  for(let i=0;i<26;i++){
+    const d=document.createElement('div');
+    d.className='conf'; d.textContent=e[Math.floor(Math.random()*e.length)];
+    d.style.left=Math.random()*100+'vw';
+    d.style.animationDuration=(1.6+Math.random()*1.4)+'s';
+    d.style.animationDelay=(Math.random()*0.4)+'s';
+    document.body.appendChild(d);
+    setTimeout(()=>d.remove(),3600);
+  }
+}
+function unitDone(u){ const d=S.done[u.id]; return d.teach&&d.quiz&&d.match&&d.fill; }
+function pct(u){ const d=S.done[u.id]; return (['teach','quiz','match','fill'].filter(k=>d[k]).length/4)*100; }
+function go(screen,opt){ Object.assign(S,{screen},opt||{}); render(); window.scrollTo(0,0); }
+
+/* =========================================================
+   畫面外框
+   ========================================================= */
+function topbar(title,onBack){
+  const bar=document.createElement('div'); bar.className='topbar';
+  if(onBack){
+    const b=document.createElement('button'); b.className='back'; b.textContent='←';
+    b.setAttribute('aria-label','返回'); b.onclick=onBack; bar.appendChild(b);
+  }
+  const t=document.createElement('div'); t.className='title'; t.textContent=title; bar.appendChild(t);
+  const s=document.createElement('div'); s.className='starbox';
+  s.innerHTML='<span class="s">⭐</span><span class="n">'+S.stars+'</span>';
+  bar.appendChild(s);
+  return bar;
+}
+function el(tag,cls,html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!=null)d.innerHTML=html; return d; }
+
+/* =========================================================
+   首頁
+   ========================================================= */
+function renderHome(){
+  app.innerHTML=''; bankwrap.innerHTML='';
+  app.appendChild(topbar('快樂學英文',null));
+
+  const hero=el('div','hero');
+  hero.innerHTML='<div class="faces">🐻 🐰 🐼 🦊</div><h1>快樂學英文</h1><p>Basic English Grammar · 第 1～4 章　選一個單元開始吧！</p>';
+  app.appendChild(hero);
+
+  const grid=el('div','unitgrid');
+  UNITS.forEach(u=>{
+    const b=el('button','unit');
+    b.innerHTML =
+      '<div class="icon" style="background:var('+u.cb+')">'+u.emoji+'</div>'+
+      '<div class="meta">'+
+        '<div class="no" style="color:'+u.hex+'">'+u.no+'</div>'+
+        '<div class="nm">'+u.name+'</div>'+
+        '<div class="en">'+u.en+'</div>'+
+        '<div class="bar"><i style="width:'+pct(u)+'%;background:'+u.hex+'"></i></div>'+
+      '</div>'+
+      (unitDone(u)?'<div class="badge">'+u.badge+'</div>':'');
+    b.onclick=()=>go('unit',{unit:u.id});
+    grid.appendChild(b);
+  });
+  app.appendChild(grid);
+
+  const shelf=el('div','shelf');
+  shelf.innerHTML='<h3>我的獎章櫃 🏠</h3>';
+  const row=el('div','badges');
+  UNITS.forEach(u=>{
+    const d=el('div','bg'+(unitDone(u)?' on':''),u.badge);
+    d.title=u.name; row.appendChild(d);
+  });
+  const all=UNITS.every(unitDone);
+  const crown=el('div','bg'+(all?' on':''),'🎓'); crown.title='全部完成'; row.appendChild(crown);
+  shelf.appendChild(row);
+  shelf.appendChild(el('p','',
+    '<span style="font-size:13px;color:var(--soft);font-weight:600">完成一個單元的四個活動，就能拿到獎章！</span>'));
+  const rs=el('button','',(S.stars>0?'🔄 全部重新開始':''));
+  if(S.stars>0){
+    rs.style.cssText='border:none;font-family:inherit;background:#f4ece2;color:var(--soft);font-weight:700;font-size:13px;padding:9px 14px;border-radius:12px;cursor:pointer';
+    rs.onclick=()=>{
+      if(!confirm('確定要把星星和獎章全部歸零嗎？')) return;
+      S.stars=0; UNITS.forEach(u=>S.done[u.id]={teach:false,quiz:false,match:false,fill:false});
+      save(); render();
+    };
+    shelf.appendChild(rs);
+  }
+  app.appendChild(shelf);
+}
+
+/* =========================================================
+   單元選單
+   ========================================================= */
+function renderUnit(){
+  const u=UNITS.find(x=>x.id===S.unit);
+  app.innerHTML=''; bankwrap.innerHTML='';
+  app.appendChild(topbar(u.name,()=>go('home')));
+
+  const ban=el('div','banner');
+  ban.style.background=u.hex;
+  ban.innerHTML='<div class="bi">'+u.emoji+'</div><h2>'+u.name+'</h2><p>'+u.en+'</p>';
+  app.appendChild(ban);
+
+  app.appendChild(el('div','tip','💡 '+u.rule));
+
+  const acts=el('div','acts');
+  ACTS.forEach(a=>{
+    const b=el('button','act');
+    b.innerHTML =
+      '<div class="ai" style="background:var('+u.cb+')">'+a.i+'</div>'+
+      '<div class="at"><b>'+a.nm+'</b><span>'+a.sub+'</span></div>'+
+      '<div class="ck'+(S.done[u.id][a.k]?' on':'')+'">'+(S.done[u.id][a.k]?'✅':'⬜')+'</div>';
+    b.onclick=()=>go(a.k,{unit:u.id,idx:0});
+    acts.appendChild(b);
+  });
+  app.appendChild(acts);
+}
+
+/* =========================================================
+   學一學
+   ========================================================= */
+function renderTeach(){
+  const u=UNITS.find(x=>x.id===S.unit);
+  const list=u.teach, i=Math.min(S.idx,list.length-1), c=list[i];
+  const sentence = c.en.join('');
+  app.innerHTML=''; bankwrap.innerHTML='';
+  app.appendChild(topbar('學一學 · '+u.name,()=>go('unit')));
+
+  const dots=el('div','dots');
+  list.forEach((_,n)=>{ const d=el('i'); if(n===i){d.classList.add('on'); d.style.background=u.hex;} dots.appendChild(d); });
+  app.appendChild(dots);
+
+  const card=el('div','tcard');
+  card.innerHTML =
+    (c.ch?'<div class="chtag">課本 '+c.ch+'</div>':'')+
+    '<div class="pic">'+c.pic+'</div>'+
+    '<div class="en">'+c.en[0]+'<em style="color:'+u.hex+'">'+c.en[1]+'</em>'+c.en[2]+'</div>'+
+    '<div class="zh">'+c.zh+'</div>';
+  const sp=el('button','speak','🔊　聽一次');
+  sp.onclick=()=>speak(sentence);
+  card.appendChild(sp);
+  app.appendChild(card);
+
+  app.appendChild(el('div','tip','💡 '+c.tip));
+
+  const nav=el('div','nav');
+  const prev=el('button','btn','← 上一個'); prev.disabled=(i===0);
+  prev.onclick=()=>{ S.idx=i-1; render(); };
+  const next=el('button','btn pri',(i===list.length-1?'學完了 🎉':'下一個 →'));
+  next.style.background=u.hex; next.style.boxShadow='0 4px 0 rgba(0,0,0,.2)';
+  next.onclick=()=>{
+    if(i===list.length-1){ finish(u,'teach',3,'你把句型都看完囉！'); }
+    else { S.idx=i+1; render(); }
+  };
+  nav.appendChild(prev); nav.appendChild(next);
+  app.appendChild(nav);
+
+  setTimeout(()=>speak(sentence),260);
+}
+
+/* =========================================================
+   選一選
+   ========================================================= */
+let quizState=null;
+function renderQuiz(){
+  const u=UNITS.find(x=>x.id===S.unit);
+  const list=u.quiz, i=Math.min(S.idx,list.length-1), q=list[i];
+  if(!quizState || quizState.i!==i || quizState.u!==u.id) quizState={i,u:u.id,picked:null,got:quizState&&quizState.u===u.id?quizState.got:0};
+  if(S.idx===0 && quizState.picked===null && quizState.i===0 && quizState.u!==u.id) quizState.got=0;
+
+  app.innerHTML=''; bankwrap.innerHTML='';
+  app.appendChild(topbar('選一選 · '+u.name,()=>{quizState=null;go('unit');}));
+
+  const head=el('div','qhead');
+  head.innerHTML='<span>第 '+(i+1)+' / '+list.length+' 題</span><span>答對 '+quizState.got+' 題</span>';
+  app.appendChild(head);
+
+  const filled = quizState.picked!==null;
+  const card=el('div','qcard');
+  card.innerHTML =
+    (q.ch?'<div class="chtag">課本 '+q.ch+'</div>':'')+
+    (q.scene?sceneHTML(q.scene):'<div class="pic">'+q.pic+'</div>')+
+    '<div class="sent">'+(q.a?q.a+' ':'')+
+      '<span class="blank'+(filled?' filled':'')+'" style="border-color:'+(filled?'var(--good)':u.hex)+'">'+
+        (filled?q.o[q.k]:'____')+'</span> '+q.b+'</div>'+
+    '<div class="zh">'+q.zh+'</div>';
+  app.appendChild(card);
+
+  const opts=el('div','opts');
+  q.o.forEach((o,n)=>{
+    const b=el('button','opt',o);
+    if(quizState.picked!==null){
+      if(n===q.k) b.classList.add('ok');
+      else if(n===quizState.picked) b.classList.add('no');
+      else b.classList.add('dim');
+    }
+    b.onclick=()=>{
+      if(quizState.picked!==null) return;
+      quizState.picked=n;
+      const right = n===q.k;
+      if(right){ quizState.got++; addStars(1); tone(true); }
+      else tone(false);
+      render();
+      speak((q.a?q.a+' ':'')+q.o[q.k]+' '+q.b);
+    };
+    opts.appendChild(b);
+  });
+  app.appendChild(opts);
+
+  if(quizState.picked!==null){
+    const ok = quizState.picked===q.k;
+    const fb=el('div','fb '+(ok?'ok':'no'));
+    fb.innerHTML=(ok?'🎉 答對了！＋1 顆星　':'💪 再看一次：')+q.why;
+    app.appendChild(fb);
+
+    const nav=el('div','nav'); nav.style.marginTop='14px';
+    const sp=el('button','btn','🔊 再聽一次');
+    sp.onclick=()=>speak((q.a?q.a+' ':'')+q.o[q.k]+' '+q.b);
+    const nx=el('button','btn pri',(i===list.length-1?'看成績 🎉':'下一題 →'));
+    nx.style.background=u.hex; nx.style.boxShadow='0 4px 0 rgba(0,0,0,.2)';
+    nx.onclick=()=>{
+      if(i===list.length-1){
+        const g=quizState.got, t=list.length; quizState=null;
+        finish(u,'quiz',2,'你答對了 '+g+' / '+t+' 題！');
+      } else { S.idx=i+1; quizState=null; render(); }
+    };
+    nav.appendChild(sp); nav.appendChild(nx);
+    app.appendChild(nav);
+  }
+}
+
+/* =========================================================
+   拖曳引擎（滑鼠 + 觸控；也支援點一下選、再點一下放）
+   ========================================================= */
+let drag=null, selected=null;
+function makeDraggable(chip){
+  chip.addEventListener('pointerdown', e=>{
+    if(chip.classList.contains('used')) return;
+    e.preventDefault();
+    const r=chip.getBoundingClientRect();
+    drag={chip,sx:e.clientX,sy:e.clientY,ox:e.clientX-r.left,oy:e.clientY-r.top,w:r.width,h:r.height,moved:false,ghost:null};
+    window.addEventListener('pointermove',onMove,{passive:false});
+    window.addEventListener('pointerup',onUp);
+    window.addEventListener('pointercancel',onUp);
+  });
+}
+function onMove(e){
+  if(!drag) return;
+  const dx=e.clientX-drag.sx, dy=e.clientY-drag.sy;
+  if(!drag.moved && Math.hypot(dx,dy)<9) return;
+  e.preventDefault();
+  if(!drag.moved){
+    drag.moved=true;
+    const g=drag.chip.cloneNode(true);
+    g.classList.add('ghost'); g.classList.remove('sel','used');
+    g.style.width=drag.w+'px'; g.style.height=drag.h+'px';
+    document.body.appendChild(g); drag.ghost=g;
+    drag.chip.classList.add('dragging');
+    clearSelect();
+  }
+  drag.ghost.style.left=(e.clientX-drag.ox)+'px';
+  drag.ghost.style.top=(e.clientY-drag.oy)+'px';
+  const s=slotAt(e.clientX,e.clientY);
+  document.querySelectorAll('.hot').forEach(x=>x.classList.remove('hot'));
+  if(s) s.classList.add('hot');
+}
+function onUp(e){
+  window.removeEventListener('pointermove',onMove);
+  window.removeEventListener('pointerup',onUp);
+  window.removeEventListener('pointercancel',onUp);
+  if(!drag) return;
+  const chip=drag.chip, moved=drag.moved;
+  if(moved){
+    if(drag.ghost) drag.ghost.remove();
+    chip.classList.remove('dragging');
+    document.querySelectorAll('.hot').forEach(x=>x.classList.remove('hot'));
+    const s=slotAt(e.clientX,e.clientY);
+    drag=null;
+    if(s) tryDrop(chip,s);
+  } else {
+    drag=null;
+    if(selected===chip){ clearSelect(); }
+    else { clearSelect(); selected=chip; chip.classList.add('sel'); speak(chip.dataset.word); }
+  }
+}
+function clearSelect(){ if(selected){ selected.classList.remove('sel'); selected=null; } }
+function slotAt(x,y){
+  const t=document.elementFromPoint(x,y);
+  if(!t) return null;
+  const s=t.closest('.slot,.islot');
+  if(!s || s.classList.contains('done')) return null;
+  return s;
+}
+function bindSlot(s){
+  s.addEventListener('click',()=>{
+    if(s.classList.contains('done')) return;
+    if(selected){ const c=selected; clearSelect(); tryDrop(c,s); }
+  });
+}
+
+/* =========================================================
+   配一配
+   ========================================================= */
+let gameState=null;
+function tryDrop(chip,slot){
+  if(!gameState) return;
+  const word=chip.dataset.word, key=slot.dataset.key;
+  if(word===key){
+    slot.textContent=word; slot.classList.add('done'); slot.classList.remove('wrong');
+    chip.classList.add('used');
+    gameState.left--; addStars(1); tone(true); speak(gameState.speakFor(slot));
+    if(gameState.left<=0) setTimeout(gameState.onWin,650);
+  } else {
+    slot.classList.add('wrong'); tone(false);
+    setTimeout(()=>slot.classList.remove('wrong'),450);
+  }
+}
+function buildBank(words,hex){
+  bankwrap.innerHTML='';
+  const b=el('div','bank');
+  shuffle(words).forEach(w=>{
+    const c=el('div','chip',w); c.dataset.word=w; c.style.background=hex;
+    makeDraggable(c); b.appendChild(c);
+  });
+  bankwrap.appendChild(b);
+  return b;
+}
+function renderMatch(){
+  const u=UNITS.find(x=>x.id===S.unit);
+  app.innerHTML='';
+  app.appendChild(topbar('配一配 · '+u.name,()=>{gameState=null;bankwrap.innerHTML='';go('unit');}));
+  app.appendChild(el('div','hintline','把下面的英文單字，拖到正確的圖片上 👇<br>（也可以先點單字，再點圖片下面的格子）'));
+
+  const grid=el('div','mgrid');
+  shuffle(u.match).forEach(m=>{
+    const c=el('div','mcard');
+    c.innerHTML='<div class="pic">'+m.pic+'</div>';
+    const s=el('div','slot','？'); s.dataset.key=m.w; s.dataset.pic=m.pic;
+    bindSlot(s); c.appendChild(s); grid.appendChild(c);
+  });
+  app.appendChild(grid);
+  app.appendChild(el('div','',
+    '<div style="height:110px"></div>'));
+
+  buildBank(u.match.map(m=>m.w),u.hex);
+  gameState={ left:u.match.length, speakFor:s=>s.dataset.key,
+    onWin:()=>{ bankwrap.innerHTML=''; gameState=null; finish(u,'match',3,'全部配對成功！'); } };
+}
+
+/* =========================================================
+   填一填
+   ========================================================= */
+function renderFill(){
+  const u=UNITS.find(x=>x.id===S.unit);
+  app.innerHTML='';
+  app.appendChild(topbar('填一填 · '+u.name,()=>{gameState=null;bankwrap.innerHTML='';go('unit');}));
+  app.appendChild(el('div','hintline','把單字拖進空格，把句子完成 👇<br>（也可以先點單字，再點空格）'));
+
+  u.fill.forEach(f=>{
+    const row=el('div','fsent');
+    row.innerHTML='<div class="pic">'+f.pic+'</div>';
+    const body=el('div','body');
+    const line=el('div','line');
+    if(f.pre) line.appendChild(document.createTextNode(f.pre+' '));
+    const s=el('span','islot','？'); s.dataset.key=f.k; s.dataset.full=(f.pre?f.pre+' ':'')+f.k+' '+f.post;
+    bindSlot(s); line.appendChild(s);
+    line.appendChild(document.createTextNode(' '+f.post));
+    body.appendChild(line);
+    body.appendChild(el('div','zh',f.zh));
+    row.appendChild(body);
+    app.appendChild(row);
+  });
+  app.appendChild(el('div','','<div style="height:120px"></div>'));
+
+  buildBank(u.fill.map(f=>f.k),u.hex);
+  gameState={ left:u.fill.length, speakFor:s=>s.dataset.full,
+    onWin:()=>{ bankwrap.innerHTML=''; gameState=null; finish(u,'fill',3,'句子全部完成了！'); } };
+}
+
+/* =========================================================
+   完成畫面
+   ========================================================= */
+let doneInfo=null;
+function finish(u,act,bonus,msg){
+  const first=!S.done[u.id][act];
+  S.done[u.id][act]=true;
+  if(first) addStars(bonus); else save();
+  const justFinishedUnit = unitDone(u);
+  doneInfo={u,act,bonus:first?bonus:0,msg,unitBadge:justFinishedUnit};
+  go('done',{unit:u.id});
+  confetti(); tone(true);
+}
+function renderDone(){
+  const {u,bonus,msg,unitBadge}=doneInfo;
+  app.innerHTML=''; bankwrap.innerHTML='';
+  app.appendChild(topbar('太棒了！',()=>go('unit')));
+  const d=el('div','done');
+  d.innerHTML =
+    '<div class="big">'+(unitBadge?u.badge:'🎉')+'</div>'+
+    '<h2>'+(unitBadge?'恭喜！拿到「'+u.name+'」獎章！':'做得好！')+'</h2>'+
+    '<p>'+msg+'</p>'+
+    '<div class="got">'+(bonus>0?'⭐'.repeat(bonus)+' ＋'+bonus:'⭐ 已完成過囉')+'</div>';
+  const nav=el('div','nav');
+  const a=el('button','btn','回單元');
+  a.onclick=()=>go('unit');
+  const b=el('button','btn pri','回首頁 🏠');
+  b.style.background=u.hex; b.style.boxShadow='0 4px 0 rgba(0,0,0,.2)';
+  b.onclick=()=>go('home');
+  nav.appendChild(a); nav.appendChild(b);
+  d.appendChild(nav);
+  app.appendChild(d);
+}
+
+/* =========================================================
+   路由
+   ========================================================= */
+function render(){
+  clearSelect();
+  switch(S.screen){
+    case 'home': renderHome(); break;
+    case 'unit': renderUnit(); break;
+    case 'teach': renderTeach(); break;
+    case 'quiz': renderQuiz(); break;
+    case 'match': renderMatch(); break;
+    case 'fill': renderFill(); break;
+    case 'done': renderDone(); break;
+  }
+}
+render();
+</script>
+</body>
+</html>
