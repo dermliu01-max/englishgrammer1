@@ -220,6 +220,86 @@ table.rep td.n{text-align:right;font-weight:800;font-variant-numeric:tabular-num
 .wrongitem{background:#fffaf6;border-radius:14px;padding:11px 13px;margin-bottom:8px;font-size:14px;line-height:1.7}
 .wrongitem b{color:var(--bad)}
 
+/* ---------- 補習班單字 ---------- */
+.vhead{background:#fff;border-radius:var(--r);padding:15px 17px;margin-bottom:14px;box-shadow:0 5px 0 #e7dbcb}
+.vhead h2{margin:0 0 3px;font-size:21px}
+.vhead .n{font-size:13px;color:var(--soft);font-weight:700}
+.vrow{border:none;font-family:inherit;color:inherit;text-align:left;background:#fff;border-radius:18px;
+  padding:15px;display:flex;align-items:center;gap:13px;cursor:pointer;box-shadow:0 5px 0 #e7dbcb;width:100%;margin-bottom:11px}
+.vrow:active{transform:translateY(3px);box-shadow:0 2px 0 #e7dbcb}
+.vrow .vi{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:20px;
+  font-weight:800;flex:0 0 auto;background:#e9f3ff;color:#3b6ea8}
+.vrow .vt{flex:1;min-width:0}
+.vrow .vt b{display:block;font-size:17px}
+.vrow .vt span{font-size:12.5px;color:var(--soft);font-weight:600}
+.vrow .varr{color:#cbbba6;font-size:19px}
+.vtag{display:inline-block;font-size:11px;font-weight:800;padding:2px 7px;border-radius:7px;
+  background:#fff2d4;color:#b5820c;margin-left:5px}
+
+.wtab{width:100%;border-collapse:collapse;font-size:14.5px}
+.wtab td{padding:7px 8px;border-bottom:1px solid #f2ebe1;line-height:1.55}
+.wtab tr:last-child td{border-bottom:none}
+.wtab td.i{width:30px;color:var(--soft);font-size:12px;font-weight:800;text-align:right}
+.wtab td.e{font-weight:800;white-space:nowrap}
+.wtab td.z{color:var(--soft);font-weight:600;font-size:13.5px}
+.wtab td.s{width:40px;text-align:right}
+.wtab tr.mk td.e{color:#b5820c}
+.mini{border:none;background:#f4ece2;color:var(--soft);font-size:13px;padding:5px 9px;border-radius:9px;
+  cursor:pointer;font-family:inherit}
+
+.vcard{background:#fff;border-radius:26px;padding:30px 20px;text-align:center;box-shadow:0 6px 0 #e7dbcb;
+  margin-bottom:15px;animation:slide .3s ease}
+.vcard .w{font-size:44px;font-weight:800;line-height:1.25;word-break:break-word}
+.vcard .z{font-size:20px;color:var(--soft);font-weight:700;margin-top:10px;min-height:28px}
+.vcard .hidden{color:#e2d5c4}
+
+.blanks{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin:14px 0 4px}
+.bl{width:38px;height:50px;border-radius:11px;background:#f6efe6;display:grid;place-items:center;
+  font-size:25px;font-weight:800;color:var(--ink)}
+.bl.gap{background:#fff;border:3px dashed #ddd0be;color:transparent}
+.bl.gap.next{border-color:var(--gold);background:#fffaed}
+.bl.sp{width:14px;background:transparent}
+.bl.wrong{animation:shake .4s}
+.letters{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-top:16px}
+.lt{border:none;font-family:inherit;background:#3b6ea8;color:#fff;font-weight:800;font-size:22px;
+  width:52px;height:52px;border-radius:15px;cursor:pointer;box-shadow:0 4px 0 rgba(0,0,0,.2)}
+.lt:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(0,0,0,.2)}
+.lt.used{visibility:hidden}
+
+textarea.paste{width:100%;min-height:190px;border:3px solid #ecdfd0;border-radius:16px;padding:13px;
+  font-family:inherit;font-size:14.5px;line-height:1.75;resize:vertical;background:#fffdfa;color:var(--ink)}
+textarea.paste:focus{outline:none;border-color:var(--gold)}
+.pv{background:#f6fbf7;border-radius:14px;padding:11px 13px;font-size:13.5px;line-height:1.8;
+  max-height:210px;overflow-y:auto;margin-top:10px}
+.pv b{color:#1d7a4b}
+input.tin{width:100%;border:3px solid #ecdfd0;border-radius:14px;padding:12px;font-family:inherit;
+  font-size:15px;background:#fffdfa;color:var(--ink);margin-bottom:10px}
+input.tin:focus{outline:none;border-color:var(--gold)}
+
+/* ---------- 儲存狀態 ---------- */
+.resume{display:flex;align-items:center;gap:9px;background:#eef7f1;border-radius:14px;padding:9px 13px;
+  margin-bottom:11px;font-size:13.5px;font-weight:700;color:#1d7a4b}
+.resume span{flex:1}
+.resume button{border:none;font-family:inherit;background:#fff;color:var(--soft);font-weight:800;font-size:12.5px;
+  padding:7px 13px;border-radius:11px;cursor:pointer;box-shadow:0 2px 0 #d5e5da}
+.savecard{background:#fff;border-radius:var(--r);padding:15px 17px;margin-top:18px;box-shadow:0 5px 0 #e7dbcb}
+.savecard h3{margin:0 0 10px;font-size:16px}
+.saverow{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:13.5px}
+.saverow .dot{width:10px;height:10px;border-radius:50%;flex:0 0 auto}
+.saverow .dot.on{background:var(--good);box-shadow:0 0 0 4px #dcf5e8}
+.saverow .dot.off{background:var(--bad);box-shadow:0 0 0 4px #ffe1dc}
+.saverow b{font-weight:800}
+.saverow .t{flex:1}
+.saverow .v{color:var(--soft);font-weight:700;font-variant-numeric:tabular-nums}
+.savebtns{display:flex;gap:9px;margin-top:10px}
+.savebtns button{flex:1;border:none;font-family:inherit;padding:13px 8px;border-radius:15px;font-size:14px;
+  font-weight:800;cursor:pointer;background:#f4ece2;color:var(--ink);box-shadow:0 4px 0 #e7dbcb}
+.savebtns button:active{transform:translateY(3px);box-shadow:0 1px 0 #e7dbcb}
+.savebtns button.hi{background:var(--ink);color:#fff;box-shadow:0 4px 0 rgba(0,0,0,.25)}
+.savewarn{background:#ffe1dc;color:#b23a28;border-radius:14px;padding:11px 13px;font-size:13px;
+  font-weight:700;line-height:1.7;margin-top:8px}
+.savenote{font-size:12px;color:var(--soft);font-weight:600;line-height:1.7;margin-top:9px}
+
 /* ---------- 文法總整理 / 錯題本 ---------- */
 .tools{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
 .tool{border:none;font-family:inherit;color:inherit;background:#fff;border-radius:18px;padding:14px 8px;
@@ -1374,6 +1454,181 @@ overview:{
 }
 };
 
+/* ============================================================
+   補習班單字複習　內建單字表
+   mark: 'circle' = 老師圈起來的、'line' = 畫底線的（重點字）
+   ============================================================ */
+const VOCAB_BUILTIN = [
+{ id:'u1w2', name:'U1 Week 2', note:'家人・農場', words:[
+  {en:'aunt',       zh:'阿姨；姑姑',            mark:'line'},
+  {en:'cousin',     zh:'堂（表）兄弟姊妹；親戚'},
+  {en:'meal',       zh:'一餐',                  mark:'circle'},
+  {en:'understand', zh:'了解',                  mark:'line'},
+  {en:'soon',       zh:'不久'},
+  {en:'daughter',   zh:'女兒'},
+  {en:'fall',       zh:'跌倒；摔倒',            mark:'circle'},
+  {en:'parents',    zh:'家長；父母',            mark:'circle'},
+  {en:'son',        zh:'兒子'},
+  {en:'uncle',      zh:'伯父；叔叔；舅舅',      mark:'circle'},
+  {en:'big',        zh:'大的'},
+  {en:'live with',  zh:'和…人住',               mark:'line'},
+  {en:'again',      zh:'又；再一次'},
+  {en:'animal',     zh:'動物',                  mark:'circle'},
+  {en:'country',    zh:'國家；鄉下',            mark:'circle'},
+  {en:'often',      zh:'經常'},
+  {en:'farm',       zh:'農場',                  mark:'line'},
+  {en:'chicken',    zh:'雞；雞肉',              mark:'line'},
+  {en:'old',        zh:'老的'},
+  {en:'sheep',      zh:'羊',                    mark:'circle'}
+]},
+{ id:'u1w3', name:'U1 Week 3', note:'動作・形容', words:[
+  {en:'play',       zh:'玩；打（球）'},
+  {en:'meat',       zh:'肉'},
+  {en:'share',      zh:'分享'},
+  {en:'wool',       zh:'羊毛'},
+  {en:'picture',    zh:'圖畫；照片'},
+  {en:'small',      zh:'小的'},
+  {en:'road',       zh:'路'},
+  {en:'flower',     zh:'花'},
+  {en:'together',   zh:'一起'},
+  {en:'young',      zh:'年輕的'},
+  {en:'divide',     zh:'分開；分割'},
+  {en:'everybody',  zh:'每個人'},
+  {en:'below',      zh:'在…下面'},
+  {en:'think',      zh:'想；認為'},
+  {en:'hear',       zh:'聽見'},
+  {en:'hot',        zh:'熱的'},
+  {en:'choose',     zh:'選擇'},
+  {en:'right',      zh:'右邊；正確的'},
+  {en:'help',       zh:'幫助'},
+  {en:'sentence',   zh:'句子'}
+]}
+];
+
+/* ============================================================
+   補習班複習作業（互動版）
+   來源：UStar 優時代　Fall Senior Worksheet Week 2
+   ============================================================ */
+const WORKSHEETS = [
+{
+ id:'ws-u1w2', listId:'u1w2', name:'Week 2 複習作業',
+ src:'UStar 優時代 · Fall Senior Worksheet Week 2',
+ parts:[
+
+ /* ---------- Part 1 ---------- */
+ {t:'Part 1', title:'選出正確的單字', en:'Circle the correct word in each sentence.',
+  tip:'把兩個單字都套進句子裡唸唸看，哪一個意思說得通就選哪一個。',
+  items:[
+   {a:'We eat rice and soup for a', b:'.', o:['meal','farm'], k:0,
+    zh:'我們吃飯和湯當一餐。', why:'<b>meal</b> 是一餐；farm 是農場。吃東西要用 meal。'},
+   {a:'My', b:'gives me a beautiful flower.', o:['daughter','chicken'], k:0,
+    zh:'我女兒給我一朵漂亮的花。', why:'會送花的是人，<b>daughter</b> 女兒；chicken 是雞。'},
+   {a:"Be careful! Don't", b:'down.', o:['fall','sheep'], k:0,
+    zh:'小心！不要跌倒。', why:'<b>fall down</b> 是跌倒；sheep 是羊，不是動作。'},
+   {a:'A', b:'lives on the farm.', o:['chicken','country'], k:0,
+    zh:'一隻雞住在農場上。', why:'住在農場的是動物，<b>chicken</b> 雞；country 是國家。'},
+   {a:'The wool comes from a', b:'.', o:['meal','sheep'], k:1,
+    zh:'羊毛來自綿羊。', why:'wool 羊毛長在 <b>sheep</b> 羊身上。'},
+   {a:"My mom's brother is my", b:'.', o:['uncle','fall'], k:0,
+    zh:'我媽媽的哥哥是我的舅舅。', why:'媽媽的兄弟就是 <b>uncle</b>（舅舅／伯父／叔叔）。'},
+   {a:'A cow is an', b:'.', o:['animal','meal'], k:0,
+    zh:'牛是一種動物。', why:'牛是 <b>animal</b> 動物。注意前面用 <b>an</b>，因為 animal 開頭是母音。'},
+   {a:'Taiwan is a', b:'.', o:['farm','country'], k:1,
+    zh:'台灣是一個國家。', why:'台灣是 <b>country</b> 國家；farm 是農場。'},
+   {a:'The farmer works on a', b:'.', o:['farm','daughter'], k:0,
+    zh:'農夫在農場工作。', why:'farmer 農夫工作的地方是 <b>farm</b> 農場。'},
+   {a:'My mom and dad are my', b:'.', o:['parents','uncle'], k:0,
+    zh:'我的爸爸和媽媽是我的父母。', why:'爸爸＋媽媽合稱 <b>parents</b>（複數）。'}
+  ]},
+
+ /* ---------- Part 2 ---------- */
+ {t:'Part 2', title:'寫出複數形', en:'Write the plural form.',
+  tip:'複數變化五條規則：<br>① 一般 → 加 <b>-s</b>　② 字尾 <b>-s, -sh, -ch, -x</b> → 加 <b>-es</b><br>'+
+      '③ <b>子音</b>+y → y 變 i 加 <b>-es</b>　④ <b>母音</b>+y → 直接加 <b>-s</b><br>'+
+      '⑤ 字尾 <b>-f / -fe</b> → 變 <b>-ves</b>　　⑥ 不規則：foot→feet、person→people、fish→fish',
+  items:[
+   {a:'one piano → four', b:'', o:['pianos','pianoes','pianoies'], k:0,
+    zh:'一台鋼琴 → 四台鋼琴', why:'樂器類的 -o 結尾直接加 <b>-s</b>：piano → piano<b>s</b>。'},
+   {a:'one city → two', b:'', o:['citys','cities','cityes'], k:1,
+    zh:'一座城市 → 兩座城市', why:'cit<u>y</u> 的 y 前面是 t（子音）→ y 變 i 加 es → <b>cities</b>。'},
+   {a:'one monkey → three', b:'', o:['monkies','monkeys','monkeies'], k:1,
+    zh:'一隻猴子 → 三隻猴子', why:'monk<u>ey</u> 的 y 前面是 e（母音）→ 直接加 s → <b>monkeys</b>。'},
+   {a:'one wife → five', b:'', o:['wifes','wives','wifves'], k:1,
+    zh:'一位太太 → 五位太太', why:'字尾 <b>-fe</b> → 變成 <b>-ves</b>：wife → wi<b>ves</b>。'},
+   {a:'one cup → seven', b:'', o:['cups','cupes','cupies'], k:0,
+    zh:'一個杯子 → 七個杯子', why:'一般名詞直接加 <b>-s</b>：cup → cup<b>s</b>。'},
+   {a:'one brush → nine', b:'', o:['brushs','brushies','brushes'], k:2,
+    zh:'一支刷子 → 九支刷子', why:'字尾是 <b>-sh</b> → 要加 <b>-es</b>：brush → brush<b>es</b>。'},
+   {a:'one fish → two', b:'', o:['fish','fishs','fishies'], k:0,
+    zh:'一條魚 → 兩條魚', why:'fish 是<b>單複數同形</b>，不用變：two <b>fish</b>。'},
+   {a:'one box → three', b:'', o:['boxs','boxes','boxies'], k:1,
+    zh:'一個盒子 → 三個盒子', why:'字尾是 <b>-x</b> → 要加 <b>-es</b>：box → box<b>es</b>。'},
+   {a:'one boy → six', b:'', o:['boies','boys','boyes'], k:1,
+    zh:'一個男孩 → 六個男孩', why:'b<u>oy</u> 的 y 前面是 o（母音）→ 直接加 s → <b>boys</b>。'},
+   {a:'one foot → two', b:'', o:['foots','feets','feet'], k:2,
+    zh:'一隻腳 → 兩隻腳', why:'<b>不規則變化</b>：foot → <b>feet</b>，要背起來。'},
+   {a:'one tree → eight', b:'', o:['trees','treees','treies'], k:0,
+    zh:'一棵樹 → 八棵樹', why:'一般名詞直接加 <b>-s</b>：tree → tree<b>s</b>。'},
+   {a:'one person → ten', b:'', o:['peoples','people','persones'], k:1,
+    zh:'一個人 → 十個人', why:'<b>不規則變化</b>：person → <b>people</b>。people 本身已經是複數，不再加 s。'}
+  ]},
+
+ /* ---------- Part 3 ---------- */
+ {t:'Part 3', title:'a 還是 an', en:'Circle the correct word.',
+  tip:'看<b>後面那個字開頭的發音</b>：母音 a / e / i / o / u 用 <b>an</b>，其他用 <b>a</b>。',
+  items:[
+   {a:'', b:'painting', o:['a','an'], k:0, zh:'一幅畫', why:'painting 開頭是 <b>p</b>（子音）→ 用 <b>a</b>。'},
+   {a:'', b:'elephant', o:['a','an'], k:1, zh:'一隻大象', why:'elephant 開頭是 <b>e</b>（母音）→ 用 <b>an</b>。'},
+   {a:'', b:'insect', o:['a','an'], k:1, zh:'一隻昆蟲', why:'insect 開頭是 <b>i</b>（母音）→ 用 <b>an</b>。'},
+   {a:'', b:'toy', o:['a','an'], k:0, zh:'一個玩具', why:'toy 開頭是 <b>t</b>（子音）→ 用 <b>a</b>。'},
+   {a:'', b:'orange', o:['a','an'], k:1, zh:'一顆柳橙', why:'orange 開頭是 <b>o</b>（母音）→ 用 <b>an</b>。'},
+   {a:'', b:'apple', o:['a','an'], k:1, zh:'一顆蘋果', why:'apple 開頭是 <b>a</b>（母音）→ 用 <b>an</b>。'},
+   {a:'', b:'basketball', o:['a','an'], k:0, zh:'一顆籃球', why:'basketball 開頭是 <b>b</b>（子音）→ 用 <b>a</b>。'},
+   {a:'', b:'skirt', o:['a','an'], k:0, zh:'一件裙子', why:'skirt 開頭是 <b>s</b>（子音）→ 用 <b>a</b>。'}
+  ]},
+
+ /* ---------- Part 4 ---------- */
+ {t:'Part 4', title:'填 a / an / the', en:'Fill in the blanks with the suitable articles.',
+  tip:'<b>世界上只有一個</b>的東西用 <b>the</b>：the sun、the moon、the earth。<br>'+
+      '普通的東西用 <b>a</b>；開頭是母音用 <b>an</b>。',
+  items:[
+   {pic:'🐄', a:'', b:'cow',   o:['a','an','the'], k:0, zh:'一頭牛', why:'普通的一頭牛，cow 開頭是子音 → <b>a</b> cow。'},
+   {pic:'🌍', a:'', b:'earth', o:['a','an','the'], k:2, zh:'地球',   why:'地球只有一個 → <b>the</b> earth。'},
+   {pic:'☀️', a:'', b:'sun',   o:['a','an','the'], k:2, zh:'太陽',   why:'太陽只有一個 → <b>the</b> sun。'},
+   {pic:'🌙', a:'', b:'moon',  o:['a','an','the'], k:2, zh:'月亮',   why:'月亮只有一個 → <b>the</b> moon。'},
+   {pic:'👦', a:'', b:'boy',   o:['a','an','the'], k:0, zh:'一個男孩', why:'普通的一個男孩，boy 開頭是子音 → <b>a</b> boy。'},
+   {pic:'🍎', a:'', b:'apple', o:['a','an','the'], k:1, zh:'一顆蘋果', why:'apple 開頭是母音 a → <b>an</b> apple。'}
+  ]},
+
+ /* ---------- Part 5 ---------- */
+ {t:'Part 5', title:'閱讀測驗', en:'Read and circle the answer.',
+  tip:'先把短文讀一遍，再回去找答案。答案通常就藏在文章裡的同一句話。',
+  reading:{
+   title:"Carly's Family",
+   text:"Carly has a large family. She lives with four people. Carly also has two pets. "+
+        "Carly's mom is a doctor. Carly's mom works at the hospital. Carly's mom helps people who are sick. "+
+        "Carly's dad works at home. Carly's dad cooks for the family. Carly's dad drives the kids to soccer practice. "+
+        "Carly has two brothers. James is ten years old. Scott is fourteen years old. "+
+        "Carly has two pets. Jinx is a small, black cat. Diego is a large, brown dog. Carly loves her family!",
+   zh:"Carly 有一個大家庭。她和四個人住在一起，還養了兩隻寵物。媽媽是醫生，在醫院工作，幫助生病的人。"+
+      "爸爸在家工作，為全家人做飯，還開車載小孩去足球練習。Carly 有兩個兄弟，James 十歲、Scott 十四歲。"+
+      "她的兩隻寵物：Jinx 是一隻黑色小貓，Diego 是一隻棕色大狗。Carly 愛她的家人！"
+  },
+  items:[
+   {a:'Carly lives with four', b:'.', o:['people','pets','brothers'], k:0,
+    zh:'Carly 和四個人住在一起。', why:'文章第二句：She lives with four <b>people</b>.'},
+   {a:'Carly has two', b:'. They are James and Scott.', o:['pets','brothers','sisters'], k:1,
+    zh:'Carly 有兩個兄弟，James 和 Scott。', why:'文章寫 Carly has two <b>brothers</b>. James is ten… Scott is fourteen…'},
+   {a:'Jinx is a small, black', b:'.', o:['dog','cat','bird'], k:1,
+    zh:'Jinx 是一隻黑色的小貓。', why:'文章：Jinx is a small, black <b>cat</b>. Diego 才是狗。'},
+   {a:'Her mom is a', b:'.', o:['teacher','farmer','doctor'], k:2,
+    zh:'她的媽媽是醫生。', why:"文章：Carly's mom is a <b>doctor</b>. 她在醫院工作。"}
+  ]}
+ ]
+}
+];
+WORKSHEETS.forEach(ws=>ws.parts.forEach((p,pi)=>p.items.forEach((it,ii)=>{ it.id=ws.id+'-p'+pi+'-'+ii; })));
+
 
 /* =========================================================
    狀態
@@ -1387,7 +1642,10 @@ const ACTS = [
 const S = {
   stars:0, done:{}, stats:{}, wrong:{},
   screen:"home", unit:null, set:"A", idx:0,
-  shuffle:true, reviewMode:false, reviewCh:null, reviewFrom:null, gch:"1-1"
+  shuffle:true, reviewMode:false, reviewCh:null, reviewFrom:null, gch:"1-1",
+  runState:null, lastSaved:0, lastExport:0,
+  vocabLists:[], vocabDone:{}, vocabWrong:{}, vid:'u1w2', vFlip:false, vMarkOnly:false, veditId:null,
+  wsDone:{}, wsWrong:{}, wsid:null, wspi:0
 };
 UNITS.forEach(u=>{
   S.done[u.id]={};
@@ -1395,22 +1653,86 @@ UNITS.forEach(u=>{
 });
 
 const SAVEKEY='happy-english-v2';
+/* 開場先實測這個瀏覽器能不能寫入，能就開自動儲存，不能就提醒改用手動備份 */
+let STORAGE_OK=(function(){
+  try{ localStorage.setItem(SAVEKEY+'-probe','1'); localStorage.removeItem(SAVEKEY+'-probe'); return true; }
+  catch(e){ return false; }
+})();
+function payload(){
+  return {app:'happy-english', version:3, savedAt:new Date().toISOString(),
+    stars:S.stars, done:S.done, stats:S.stats, wrong:S.wrong,
+    shuffle:S.shuffle, runState:S.runState, lastExport:S.lastExport,
+    vocabLists:S.vocabLists, vocabDone:S.vocabDone, vocabWrong:S.vocabWrong,
+    wsDone:S.wsDone, wsWrong:S.wsWrong};
+}
 function save(){
-  try{ localStorage.setItem(SAVEKEY, JSON.stringify(
-    {stars:S.stars, done:S.done, stats:S.stats, wrong:S.wrong, shuffle:S.shuffle})); }catch(e){}
+  S.lastSaved=Date.now();
+  if(!STORAGE_OK) return;
+  try{ localStorage.setItem(SAVEKEY, JSON.stringify(payload())); }
+  catch(e){ STORAGE_OK=false; }
+}
+function applyData(d){
+  if(typeof d.stars==='number') S.stars=d.stars;
+  if(typeof d.shuffle==='boolean') S.shuffle=d.shuffle;
+  if(d.stats) S.stats=d.stats;
+  if(d.wrong) S.wrong=d.wrong;
+  if(d.runState) S.runState=d.runState;
+  if(d.lastExport) S.lastExport=d.lastExport;
+  if(Array.isArray(d.vocabLists)) S.vocabLists=d.vocabLists;
+  if(d.vocabDone) S.vocabDone=d.vocabDone;
+  if(d.vocabWrong) S.vocabWrong=d.vocabWrong;
+  if(d.wsDone) S.wsDone=d.wsDone;
+  if(d.wsWrong) S.wsWrong=d.wsWrong;
+  if(d.savedAt) S.lastSaved=Date.parse(d.savedAt)||Date.now();
+  if(d.done) UNITS.forEach(u=>SETS.forEach(t=>{
+    if(d.done[u.id]&&d.done[u.id][t]) Object.assign(S.done[u.id][t], d.done[u.id][t]);
+  }));
+}
+/* 合併：星星取較高、完成過的保留、統計相加、錯題聯集 */
+function mergeData(d){
+  if(typeof d.stars==='number') S.stars=Math.max(S.stars,d.stars);
+  if(d.done) UNITS.forEach(u=>SETS.forEach(t=>{
+    const src=d.done[u.id]&&d.done[u.id][t]; if(!src) return;
+    ['teach','quiz','match','fill'].forEach(k=>{ if(src[k]) S.done[u.id][t][k]=true; });
+  }));
+  if(d.stats) Object.keys(d.stats).forEach(ch=>{
+    if(!S.stats[ch]) S.stats[ch]={right:0,wrong:0};
+    S.stats[ch].right+=d.stats[ch].right||0;
+    S.stats[ch].wrong+=d.stats[ch].wrong||0;
+  });
+  if(d.wrong) Object.keys(d.wrong).forEach(id=>{
+    if(S.wrong[id]) S.wrong[id].n=Math.max(S.wrong[id].n,d.wrong[id].n||1);
+    else S.wrong[id]=d.wrong[id];
+  });
+  if(Array.isArray(d.vocabLists)) d.vocabLists.forEach(l=>{
+    if(!S.vocabLists.some(x=>x.id===l.id)) S.vocabLists.push(l);
+  });
+  if(d.vocabDone) Object.keys(d.vocabDone).forEach(k=>{
+    S.vocabDone[k]=S.vocabDone[k]||{cards:false,listen:false,spell:false};
+    ['cards','listen','spell'].forEach(a=>{ if(d.vocabDone[k][a]) S.vocabDone[k][a]=true; });
+  });
+  if(d.vocabWrong) Object.keys(d.vocabWrong).forEach(k=>{
+    if(!S.vocabWrong[k]) S.vocabWrong[k]=d.vocabWrong[k];
+  });
+  if(d.wsDone) Object.keys(d.wsDone).forEach(k=>{
+    S.wsDone[k]=S.wsDone[k]||{};
+    Object.keys(d.wsDone[k]).forEach(pk=>{ if(d.wsDone[k][pk]) S.wsDone[k][pk]=true; });
+  });
+  if(d.wsWrong) Object.keys(d.wsWrong).forEach(k=>{
+    if(!S.wsWrong[k]) S.wsWrong[k]=d.wsWrong[k];
+  });
 }
 function load(){
+  if(!STORAGE_OK) return;
   try{
     const raw=localStorage.getItem(SAVEKEY); if(!raw) return;
-    const d=JSON.parse(raw);
-    if(typeof d.stars==='number') S.stars=d.stars;
-    if(typeof d.shuffle==='boolean') S.shuffle=d.shuffle;
-    if(d.stats) S.stats=d.stats;
-    if(d.wrong) S.wrong=d.wrong;
-    if(d.done) UNITS.forEach(u=>SETS.forEach(t=>{
-      if(d.done[u.id]&&d.done[u.id][t]) Object.assign(S.done[u.id][t], d.done[u.id][t]);
-    }));
+    applyData(JSON.parse(raw));
   }catch(e){}
+}
+function fmtTime(ts){
+  if(!ts) return '—';
+  const d=new Date(ts), p=n=>String(n).padStart(2,'0');
+  return d.getFullYear()+'/'+p(d.getMonth()+1)+'/'+p(d.getDate())+' '+p(d.getHours())+':'+p(d.getMinutes());
 }
 load();
 
@@ -1561,8 +1883,20 @@ function renderHome(){
   });
   app.appendChild(grid);
 
-  const tools=el('div','tools');
   const mk=(i,t,s,fn)=>{ const b=el('button','tool','<span class="ti emo">'+i+'</span><b>'+t+'</b><span>'+s+'</span>'); b.onclick=fn; return b; };
+
+  const vt=el('div','tools'); vt.style.gridTemplateColumns='1fr';
+  const nv=allLists().length, nvw=Object.keys(S.vocabWrong||{}).length;
+  const vb=el('button','tool');
+  vb.style.cssText='padding:16px;display:flex;align-items:center;gap:13px;text-align:left';
+  vb.innerHTML='<span class="ti emo" style="margin:0;font-size:30px">📗</span>'+
+    '<span style="flex:1"><b style="font-size:16px">補習班單字複習</b>'+
+    '<span>'+nv+' 份單字表　單字卡・聽發音・拼字'+(nvw?'　錯字 '+nvw+' 個':'')+'</span></span>'+
+    '<span style="color:#cbbba6;font-size:19px">›</span>';
+  vb.onclick=()=>go('vocab');
+  vt.appendChild(vb); app.appendChild(vt);
+
+  const tools=el('div','tools');
   tools.appendChild(mk('📘','文法總整理','36 個文法表',()=>go('grammar')));
   tools.appendChild(mk('⚠️','常見錯誤','14 組易混淆',()=>go('gerrors')));
   const nw=Object.keys(S.wrong).length;
@@ -1577,6 +1911,56 @@ function renderHome(){
   shelf.appendChild(el('p','','<span style="font-size:13px;color:var(--soft);font-weight:600">'+
     '完成一卷的四個活動就拿到獎章；A、B、C 三卷全部完成可以拿到畢業帽。</span>'));
   app.appendChild(shelf);
+
+  app.appendChild(saveCard());
+}
+
+/* ---------- 首頁的儲存狀態卡 ---------- */
+function saveCard(){
+  const c=el('div','savecard','<h3>💾 進度儲存</h3>');
+  const r1=el('div','saverow',
+    '<span class="dot '+(STORAGE_OK?'on':'off')+'"></span>'+
+    '<span class="t"><b>自動儲存</b></span>'+
+    '<span class="v">'+(STORAGE_OK?'開啟中':'無法使用')+'</span>');
+  c.appendChild(r1);
+  if(STORAGE_OK){
+    c.appendChild(el('div','saverow',
+      '<span style="width:10px"></span><span class="t">最後儲存時間</span>'+
+      '<span class="v">'+fmtTime(S.lastSaved)+'</span>'));
+    c.appendChild(el('div','saverow',
+      '<span style="width:10px"></span><span class="t">最後備份時間</span>'+
+      '<span class="v">'+(S.lastExport?fmtTime(S.lastExport):'尚未備份')+'</span>'));
+  }
+  if(!STORAGE_OK){
+    c.appendChild(el('div','savewarn',
+      '⚠️ 這個瀏覽器不允許自動儲存（可能是無痕／私密瀏覽模式）。'+
+      '關掉頁面進度就會消失，請在結束前按<b>「匯出備份」</b>把紀錄存成檔案。'));
+  }
+  const btns=el('div','savebtns');
+  const bx=el('button', (!S.lastExport && S.stars>=20) ? 'hi' : '', '⬇️ 匯出備份');
+  bx.onclick=()=>{ exportData(); setTimeout(render,600); };
+  const bi=el('button','','⬆️ 匯入還原');
+  const fi=document.createElement('input');
+  fi.type='file'; fi.accept='.json,application/json'; fi.style.display='none';
+  fi.onchange=()=>{ handleImportFile(fi); };
+  bi.onclick=()=>fi.click();
+  btns.appendChild(bx); btns.appendChild(bi);
+  c.appendChild(btns); c.appendChild(fi);
+  c.appendChild(el('div','savenote',
+    '星星、獎章、錯題、答題統計、連做到一半的題目都會<b>自動存在這台裝置</b>，關掉再打開會接續。<br>'+
+    '換手機或換電腦時，先在舊裝置按「匯出備份」，會得到一個叫 '+
+    '<b>happy-english-progress-日期.json</b> 的小檔案，用 LINE 或 email 傳到新裝置，'+
+    '再按「匯入還原」即可。匯入時可以選擇<b>覆蓋</b>或和現有紀錄<b>合併</b>。'));
+  return c;
+}
+function handleImportFile(fi){
+  if(!fi.files||!fi.files[0]) return;
+  const f=fi.files[0];
+  importData(f,(err,info)=>{
+    if(err) alert('匯入失敗：'+err.message);
+    else render();
+    fi.value='';
+  });
 }
 
 /* =========================================================
@@ -1686,7 +2070,41 @@ function buildRun(u){
     if(S.shuffle) opts=shuffle(opts);
     return {q, opts, k:opts.findIndex(o=>o.ok)};
   });
-  return {list, i:0, got:0, picked:null, unit:u.id, review:S.reviewMode, ch:S.reviewCh||null};
+  return {list, i:0, got:0, picked:null, unit:u.id, review:S.reviewMode, ch:S.reviewCh||null, resumed:false};
+}
+/* ---- 做到一半也保存：記下題目順序、選項順序、做到第幾題 ---- */
+function qById(id){
+  for(const u of UNITS) for(const t of SETS){
+    const q=u.sets[t].quiz.find(x=>x.id===id); if(q) return q;
+  }
+  return null;
+}
+function saveRun(){
+  if(!run){ S.runState=null; save(); return; }
+  S.runState={unit:run.unit, set:S.set, review:run.review, ch:run.ch,
+    i:run.i, got:run.got, ids:run.list.map(x=>x.q.id), opts:run.list.map(x=>x.opts.map(o=>o.t))};
+  save();
+}
+function clearRun(){ S.runState=null; save(); }
+function restoreRun(u){
+  const r=S.runState;
+  if(!r||!r.ids||!r.ids.length) return null;
+  if(r.unit!==u.id) return null;
+  if(r.review!==S.reviewMode) return null;
+  if((r.ch||null)!==(S.reviewCh||null)) return null;
+  if(!S.reviewMode && r.set!==S.set) return null;
+  if(!(r.i>0)) return null;                      // 第一題就離開，不算進度
+  const list=[];
+  for(let i=0;i<r.ids.length;i++){
+    const q=qById(r.ids[i]); if(!q) return null;
+    const correct=q.o[q.k];
+    const opts=(r.opts[i]||[]).map(t=>({t, ok:t===correct}));
+    const k=opts.findIndex(o=>o.ok);
+    if(k<0||opts.length!==q.o.length) return null;
+    list.push({q, opts, k});
+  }
+  return {list, i:Math.min(r.i,list.length-1), got:r.got||0, picked:null,
+          unit:u.id, review:r.review, ch:r.ch||null, resumed:true};
 }
 function quizBack(){
   run=null;
@@ -1695,7 +2113,9 @@ function quizBack(){
 }
 function renderQuiz(){
   const u=unitById(S.unit);
-  if(!run||run.unit!==u.id||run.review!==S.reviewMode||run.ch!==(S.reviewCh||null)) run=buildRun(u);
+  if(!run||run.unit!==u.id||run.review!==S.reviewMode||run.ch!==(S.reviewCh||null)){
+    run=restoreRun(u)||buildRun(u);
+  }
   const item=run.list[run.i], q=item.q;
   app.innerHTML=''; bankwrap.innerHTML='';
   const ttl = S.reviewMode ? ('錯題複習'+(S.reviewCh?' · 課本 '+S.reviewCh:'')) : ('選一選 '+S.set+'卷 · '+u.name);
@@ -1703,6 +2123,15 @@ function renderQuiz(){
 
   app.appendChild(el('div','qhead',
     '<span>第 '+(run.i+1)+' / '+run.list.length+' 題</span><span>答對 '+run.got+' 題</span>'));
+
+  if(run.resumed){
+    const bar=el('div','resume');
+    bar.innerHTML='<span>💾 已接續上次做到的第 '+(run.i+1)+' 題</span>';
+    const rb=el('button','','重新開始');
+    rb.onclick=()=>{ clearRun(); run=buildRun(u); render(); };
+    bar.appendChild(rb);
+    app.appendChild(bar);
+  }
 
   const filled=run.picked!==null;
   const card=el('div','qcard');
@@ -1729,6 +2158,7 @@ function renderQuiz(){
       const right=(n===item.k);
       if(right){ run.got++; addStars(1); tone(true); } else tone(false);
       record(q,right);
+      saveRun();
       render();
       speak(qSentence(q,item.opts[item.k].t));
     };
@@ -1748,10 +2178,10 @@ function renderQuiz(){
     nx.style.background=u.hex;
     nx.onclick=()=>{
       if(last){
-        const g=run.got, t=run.list.length, rev=run.review; run=null;
+        const g=run.got, t=run.list.length, rev=run.review; run=null; clearRun();
         if(rev){ quizBack(); }
         else finish(u,'quiz',2,'你答對了 '+g+' / '+t+' 題！');
-      } else { run.i++; run.picked=null; render(); }
+      } else { run.i++; run.picked=null; run.resumed=false; saveRun(); render(); }
     };
     nav.appendChild(sp); nav.appendChild(nx);
     app.appendChild(nav);
@@ -1903,18 +2333,650 @@ function finish(u,act,bonus,msg){
   confetti(); tone(true);
 }
 function renderDone(){
-  const {u,bonus,msg,unitBadge}=doneInfo;
+  const {u,bonus,msg,unitBadge,back}=doneInfo;
+  const goBack=back||(()=>go('unit'));
   app.innerHTML=''; bankwrap.innerHTML='';
-  app.appendChild(topbar('太棒了！',()=>go('unit')));
+  app.appendChild(topbar('太棒了！',goBack));
   const d=el('div','done',
     '<div class="big emo">'+(unitBadge?u.badge:'🎉')+'</div>'+
-    '<h2>'+(unitBadge?'恭喜！完成「'+u.name+' '+S.set+'卷」！':'做得好！')+'</h2>'+
+    '<h2>'+(unitBadge?'恭喜！完成「'+u.name+(back?'':' '+S.set+'卷')+'」！':'做得好！')+'</h2>'+
     '<p>'+msg+'</p>'+
     '<div class="got emo">'+(bonus>0?'⭐'.repeat(bonus)+' ＋'+bonus:'⭐ 已完成過囉')+'</div>');
   const nav=el('div','nav');
-  const a=el('button','btn','回單元'); a.onclick=()=>go('unit');
+  const a=el('button','btn',back?'回單字表':'回單元'); a.onclick=goBack;
   const b=el('button','btn pri','回首頁 🏠'); b.style.background=u.hex; b.onclick=()=>go('home');
   nav.appendChild(a); nav.appendChild(b); d.appendChild(nav); app.appendChild(d);
+}
+
+/* =========================================================
+   補習班單字
+   ========================================================= */
+function allLists(){ return VOCAB_BUILTIN.concat(S.vocabLists||[]); }
+function listById(id){ return allLists().find(l=>l.id===id); }
+function isCustom(id){ return (S.vocabLists||[]).some(l=>l.id===id); }
+function vWords(l){
+  const w=l.words||[];
+  return (S.vMarkOnly && w.some(x=>x.mark)) ? w.filter(x=>x.mark) : w;
+}
+function vKey(listId,en){ return listId+'::'+en; }
+function vRecord(listId,w,right){
+  const k=vKey(listId,w.en);
+  if(right){ if(S.vocabWrong[k]) delete S.vocabWrong[k]; }
+  else S.vocabWrong[k]={list:listId, en:w.en, zh:w.zh, n:((S.vocabWrong[k]||{}).n||0)+1};
+  save();
+}
+function vDone(id){ return S.vocabDone[id]||(S.vocabDone[id]={cards:false,listen:false,spell:false}); }
+function vFinish(l,act,bonus,msg){
+  const d=vDone(l.id), first=!d[act];
+  d[act]=true;
+  if(first) addStars(bonus); else save();
+  doneInfo={u:{name:l.name,hex:'#3b6ea8',badge:'🎖️'}, bonus:first?bonus:0, msg,
+            unitBadge:(d.cards&&d.listen&&d.spell), back:()=>go('vlist',{vid:l.id})};
+  go('vdone'); confetti(); tone(true);
+}
+
+function renderVocab(){
+  app.innerHTML=''; bankwrap.innerHTML='';
+  app.appendChild(topbar('補習班單字',()=>go('home')));
+  app.appendChild(el('div','tip','📗 這裡是補習班的單字複習。點單字表可以看單字卡、做<b>聽發音選單字</b>和<b>拼字</b>練習。老師也可以自己貼上要考的單字。'));
+
+  allLists().forEach((l,i)=>{
+    const d=vDone(l.id), n=(l.words||[]).length;
+    const marks=(l.words||[]).filter(w=>w.mark).length;
+    const okAll=d.cards&&d.listen&&d.spell;
+    const b=el('button','vrow');
+    b.innerHTML='<div class="vi">'+n+'</div>'+
+      '<div class="vt"><b>'+esc(l.name)+(okAll?' 🎖️':'')+'</b>'+
+      '<span>'+(l.note?esc(l.note)+'　':'')+n+' 個單字'+
+      (marks?'　<span class="vtag">重點 '+marks+'</span>':'')+
+      (isCustom(l.id)?'　<span class="vtag" style="background:#e9f3ff;color:#3b6ea8">老師自建</span>':'')+
+      '</span></div><span class="varr">›</span>';
+    b.onclick=()=>go('vlist',{vid:l.id});
+    app.appendChild(b);
+  });
+
+  const add=el('button','tgo','➕ 老師自建單字表（整坯貼上）');
+  add.onclick=()=>go('vnew');
+  app.appendChild(add);
+
+  const nw=Object.keys(S.vocabWrong||{}).length;
+  if(nw){
+    const wb=el('button','tgo','🔁 單字錯字本（'+nw+' 個）');
+    wb.style.cssText+='background:#ffe1dc;color:#b23a28;box-shadow:0 4px 0 #f7c3ba;margin-top:9px';
+    wb.onclick=()=>go('vwrong');
+    app.appendChild(wb);
+  }
+}
+
+function renderVList(){
+  const l=listById(S.vid); if(!l){ go('vocab'); return; }
+  const words=l.words||[], marks=words.filter(w=>w.mark).length;
+  app.innerHTML=''; bankwrap.innerHTML='';
+  app.appendChild(topbar(l.name,()=>go('vocab')));
+
+  const h=el('div','vhead','<h2>'+esc(l.name)+'</h2><div class="n">'+
+    (l.note?esc(l.note)+'　':'')+words.length+' 個單字</div>');
+  if(marks){
+    const sw=el('div','switch','<div><b>只練重點單字</b><span>老師圈起來或畫線的 '+marks+' 個字</span></div>');
+    const swb=el('button','sw'+(S.vMarkOnly?' on':''),'<i></i>');
+    swb.onclick=()=>{ S.vMarkOnly=!S.vMarkOnly; save(); render(); };
+    sw.appendChild(swb); h.appendChild(sw);
+  }
+  app.appendChild(h);
+
+  wsFor(l.id).forEach(ws=>{
+    const all=wsAllDone(ws), n=ws.parts.reduce((a,p)=>a+p.items.length,0);
+    const dn=ws.parts.filter((p,i)=>wsPartDone(ws.id,i)).length;
+    const b=el('button','act');
+    b.style.marginBottom='12px';
+    b.innerHTML='<div class="ai emo" style="background:#fff2d4">📝</div>'+
+      '<div class="at"><b>'+esc(ws.name)+(all?' 🎖️':'')+'</b>'+
+      '<span>補習班作業互動版　'+ws.parts.length+' 個部分 '+n+' 題'+
+      (dn?'　已完成 '+dn+'/'+ws.parts.length:'')+'</span></div>'+
+      '<div class="ck emo'+(all?' on':'')+'">'+(all?'✅':'➜')+'</div>';
+    b.onclick=()=>go('wsheet',{wsid:ws.id});
+    app.appendChild(b);
+  });
+
+  const d=vDone(l.id);
+  const acts=[
+    ['cards','單字卡複習','一個一個看，點卡片翻出中文，可聽發音','📇'],
+    ['listen','聽發音選單字','聽老師唸，從四個字裡選出正確的','🎧'],
+    ['spell','拼字練習','看中文和發音，把缺的字母填回去','🔤']
+  ];
+  const wrap=el('div','acts');
+  acts.forEach(a=>{
+    const b=el('button','act');
+    b.innerHTML='<div class="ai emo" style="background:#e9f3ff">'+a[3]+'</div>'+
+      '<div class="at"><b>'+a[1]+'</b><span>'+a[2]+'</span></div>'+
+      '<div class="ck emo'+(d[a[0]]?' on':'')+'">'+(d[a[0]]?'✅':'⬜')+'</div>';
+    b.onclick=()=>go('v'+a[0],{vid:l.id,idx:0});
+    wrap.appendChild(b);
+  });
+  app.appendChild(wrap);
+
+  const box=el('div','gcard');
+  box.appendChild(el('div','gsec','單字表'));
+  let t='<table class="wtab">';
+  words.forEach((w,i)=>{
+    t+='<tr class="'+(w.mark?'mk':'')+'"><td class="i">'+(i+1)+'</td>'+
+       '<td class="e">'+esc(w.en)+(w.mark?' ★':'')+'</td><td class="z">'+esc(w.zh)+'</td>'+
+       '<td class="s"><button class="mini" data-w="'+esc(w.en)+'">🔊</button></td></tr>';
+  });
+  t+='</table>';
+  box.appendChild(el('div','',t));
+  box.querySelectorAll('button.mini').forEach(b=>b.onclick=()=>speak(b.dataset.w));
+  app.appendChild(box);
+
+  const pr=el('button','tgo','🖨️ 印成單字默寫卷（含解答）');
+  pr.style.cssText+='background:#f4ece2;color:var(--ink);box-shadow:0 4px 0 #e7dbcb';
+  pr.onclick=()=>{ buildVocabSheet(l); setTimeout(()=>window.print(),120); };
+  app.appendChild(pr);
+
+  if(isCustom(l.id)){
+    const ed=el('button','tgo','✏️ 編輯這份單字表');
+    ed.style.cssText+='background:#f4ece2;color:var(--ink);box-shadow:0 4px 0 #e7dbcb;margin-top:9px';
+    ed.onclick=()=>go('vnew',{veditId:l.id});
+    app.appendChild(ed);
+    const del=el('button','tgo','🗑️ 刪除這份單字表');
+    del.style.cssText+='background:#ffe1dc;color:#b23a28;box-shadow:0 4px 0 #f7c3ba;margin-top:9px';
+    del.onclick=()=>{
+      if(!confirm('確定要刪除「'+l.name+'」嗎？此動作無法復原。')) return;
+      S.vocabLists=S.vocabLists.filter(x=>x.id!==l.id);
+      delete S.vocabDone[l.id]; save(); go('vocab');
+    };
+    app.appendChild(del);
+  }
+}
+
+/* ---------- 單字卡 ---------- */
+function renderVcards(){
+  const l=listById(S.vid); if(!l){ go('vocab'); return; }
+  const ws=vWords(l), i=Math.min(S.idx,ws.length-1), w=ws[i];
+  app.innerHTML=''; bankwrap.innerHTML='';
+  app.appendChild(topbar('單字卡 · '+l.name,()=>go('vlist',{vid:l.id})));
+
+  const dots=el('div','dots');
+  ws.forEach((_,n)=>{ const d=el('i'); if(n===i){d.classList.add('on'); d.style.background='#3b6ea8';} dots.appendChild(d); });
+  app.appendChild(dots);
+
+  const card=el('div','vcard');
+  card.innerHTML='<div class="w">'+esc(w.en)+'</div>'+
+    '<div class="z'+(S.vFlip?'':' hidden')+'">'+(S.vFlip?esc(w.zh):'點一下看中文')+'</div>';
+  card.onclick=()=>{ S.vFlip=!S.vFlip; render(); };
+  app.appendChild(card);
+
+  const sp=el('button','speak','🔊　聽發音');
+  sp.style.cssText+='display:block;margin:0 auto 15px';
+  sp.onclick=(e)=>{ e.stopPropagation(); speak(w.en); };
+  app.appendChild(sp);
+
+  const nav=el('div','nav');
+  const prev=el('button','btn','← 上一個'); prev.disabled=(i===0);
+  prev.onclick=()=>{ S.idx=i-1; S.vFlip=false; render(); };
+  const next=el('button','btn pri',(i===ws.length-1?'看完了 🎉':'下一個 →'));
+  next.style.background='#3b6ea8';
+  next.onclick=()=>{
+    if(i===ws.length-1){ S.vFlip=false; vFinish(l,'cards',2,'你把 '+ws.length+' 個單字都看完了！'); }
+    else { S.idx=i+1; S.vFlip=false; render(); }
+  };
+  nav.appendChild(prev); nav.appendChild(next);
+  app.appendChild(nav);
+  setTimeout(()=>speak(w.en),220);
+}
+
+/* ---------- 聽發音選單字 ---------- */
+let vrun=null;
+function buildVrun(l,mode){
+  const ws=shuffle(vWords(l));
+  return {list:ws, i:0, got:0, picked:null, list_id:l.id, mode, opts:null};
+}
+function renderVlisten(){
+  const l=listById(S.vid); if(!l){ go('vocab'); return; }
+  if(!vrun||vrun.list_id!==l.id||vrun.mode!=='listen') vrun=buildVrun(l,'listen');
+  const w=vrun.list[vrun.i];
+  if(!vrun.opts){
+    const pool=vWords(l).filter(x=>x.en!==w.en);
+    vrun.opts=shuffle([w].concat(shuffle(pool).slice(0,3)));
+  }
+  app.innerHTML=''; bankwrap.innerHTML='';
+  app.appendChild(topbar('聽發音選單字 · '+l.name,()=>{vrun=null;go('vlist',{vid:l.id});}));
+  app.appendChild(el('div','qhead',
+    '<span>第 '+(vrun.i+1)+' / '+vrun.list.length+' 題</span><span>答對 '+vrun.got+' 個</span>'));
+
+  const card=el('div','qcard');
+  card.innerHTML='<div class="pic emo">🎧</div><div class="zh">按喇叭聽一次，選出你聽到的單字</div>';
+  const sp=el('button','speak','🔊　再聽一次');
+  sp.style.marginTop='12px';
+  sp.onclick=()=>speak(w.en);
+  card.appendChild(sp);
+  if(vrun.picked!==null) card.appendChild(el('div','zh','<div style="margin-top:12px;font-size:22px;font-weight:800;color:var(--ink)">'+
+    esc(w.en)+'</div>'+esc(w.zh)));
+  app.appendChild(card);
+
+  const opts=el('div','opts');
+  vrun.opts.forEach((o,n)=>{
+    const b=el('button','opt',esc(o.en));
+    if(vrun.picked!==null){
+      if(o.en===w.en) b.classList.add('ok');
+      else if(n===vrun.picked) b.classList.add('no');
+      else b.classList.add('dim');
+    }
+    b.onclick=()=>{
+      if(vrun.picked!==null) return;
+      vrun.picked=n;
+      const right=(o.en===w.en);
+      if(right){ vrun.got++; addStars(1); tone(true); } else tone(false);
+      vRecord(l.id,w,right);
+      render(); speak(w.en);
+    };
+    opts.appendChild(b);
+  });
+  app.appendChild(opts);
+
+  if(vrun.picked!==null){
+    const last=(vrun.i===vrun.list.length-1);
+    const nav=el('div','nav'); nav.style.marginTop='13px';
+    const nx=el('button','btn pri',(last?'看成績 🎉':'下一題 →'));
+    nx.style.background='#3b6ea8';
+    nx.onclick=()=>{
+      if(last){ const g=vrun.got,t=vrun.list.length; vrun=null; vFinish(l,'listen',2,'你答對了 '+g+' / '+t+' 個！'); }
+      else { vrun.i++; vrun.picked=null; vrun.opts=null; render(); }
+    };
+    nav.appendChild(nx); app.appendChild(nav);
+  } else setTimeout(()=>speak(w.en),260);
+}
+
+/* ---------- 拼字 ---------- */
+function gapCount(word){
+  const n=word.replace(/[^a-zA-Z]/g,'').length;
+  return n<=4?1:(n<=6?2:(n<=8?3:4));
+}
+function makeSpell(w){
+  const chars=w.en.split('');
+  const idx=chars.map((c,i)=>({c,i})).filter(x=>/[a-zA-Z]/.test(x.c)).map(x=>x.i);
+  const gaps=shuffle(idx).slice(0,Math.min(gapCount(w.en),idx.length)).sort((a,b)=>a-b);
+  return {chars, gaps, filled:[], letters:shuffle(gaps.map(i=>chars[i]))};
+}
+function renderVspell(){
+  const l=listById(S.vid); if(!l){ go('vocab'); return; }
+  if(!vrun||vrun.list_id!==l.id||vrun.mode!=='spell') vrun=buildVrun(l,'spell');
+  const w=vrun.list[vrun.i];
+  if(!vrun.sp) vrun.sp=makeSpell(w);
+  const sp=vrun.sp;
+  app.innerHTML=''; bankwrap.innerHTML='';
+  app.appendChild(topbar('拼字 · '+l.name,()=>{vrun=null;go('vlist',{vid:l.id});}));
+  app.appendChild(el('div','qhead',
+    '<span>第 '+(vrun.i+1)+' / '+vrun.list.length+' 題</span><span>答對 '+vrun.got+' 個</span>'));
+
+  const done=(sp.filled.length===sp.gaps.length);
+  const card=el('div','qcard');
+  card.innerHTML='<div class="zh" style="font-size:20px;color:var(--ink);font-weight:800">'+esc(w.zh)+'</div>';
+  const bl=el('div','blanks');
+  sp.chars.forEach((c,i)=>{
+    const gi=sp.gaps.indexOf(i);
+    if(gi<0){ bl.appendChild(el('div','bl'+(/\s/.test(c)?' sp':''), /\s/.test(c)?'':esc(c))); }
+    else{
+      const got=sp.filled[gi];
+      const d=el('div','bl gap'+(got?'':'')+((!got&&gi===sp.filled.length)?' next':''), got?esc(got):'');
+      if(got){ d.classList.remove('gap'); d.textContent=got; }
+      bl.appendChild(d);
+    }
+  });
+  card.appendChild(bl);
+  const sb=el('button','speak','🔊　聽發音');
+  sb.style.marginTop='10px';
+  sb.onclick=()=>speak(w.en);
+  card.appendChild(sb);
+  app.appendChild(card);
+
+  if(!done){
+    const lt=el('div','letters');
+    sp.letters.forEach((c,n)=>{
+      const b=el('button','lt'+(sp.usedIdx&&sp.usedIdx.indexOf(n)>=0?' used':''),esc(c));
+      b.onclick=()=>{
+        const need=sp.chars[sp.gaps[sp.filled.length]];
+        if(c===need){
+          sp.filled.push(c);
+          sp.usedIdx=(sp.usedIdx||[]).concat([n]);
+          tone(true);
+          if(sp.filled.length===sp.gaps.length){
+            vrun.got++; addStars(1); vRecord(l.id,w,!sp.missed); speak(w.en);
+          }
+          render();
+        } else {
+          sp.missed=true; tone(false);
+          const g=app.querySelectorAll('.bl.gap.next')[0];
+          if(g){ g.classList.add('wrong'); setTimeout(()=>g.classList.remove('wrong'),450); }
+        }
+      };
+      lt.appendChild(b);
+    });
+    app.appendChild(lt);
+    app.appendChild(el('div','hintline','點字母，把空格從左到右填滿'));
+  } else {
+    app.appendChild(el('div','fb ok','🎉 拼對了！　<b>'+esc(w.en)+'</b>　'+esc(w.zh)));
+    const last=(vrun.i===vrun.list.length-1);
+    const nav=el('div','nav'); nav.style.marginTop='13px';
+    const nx=el('button','btn pri',(last?'看成績 🎉':'下一個 →'));
+    nx.style.background='#3b6ea8';
+    nx.onclick=()=>{
+      if(last){ const g=vrun.got,t=vrun.list.length; vrun=null; vFinish(l,'spell',3,'你拼對了 '+g+' / '+t+' 個！'); }
+      else { vrun.i++; vrun.sp=null; render(); }
+    };
+    nav.appendChild(nx); app.appendChild(nav);
+  }
+}
+
+/* ---------- 複習作業 ---------- */
+function wsFor(listId){ return WORKSHEETS.filter(w=>w.listId===listId); }
+function wsById(id){ return WORKSHEETS.find(w=>w.id===id); }
+function wsDone(id){ return S.wsDone[id]||(S.wsDone[id]={}); }
+function wsPartDone(wsId,pi){ return !!wsDone(wsId)['p'+pi]; }
+function wsAllDone(ws){ return ws.parts.every((p,i)=>wsPartDone(ws.id,i)); }
+function wsWrongOf(wsId){
+  return Object.keys(S.wsWrong||{}).map(k=>S.wsWrong[k]).filter(w=>w.ws===wsId);
+}
+
+function renderWsheet(){
+  const ws=wsById(S.wsid); if(!ws){ go('vocab'); return; }
+  app.innerHTML=''; bankwrap.innerHTML='';
+  app.appendChild(topbar(ws.name,()=>go('vlist',{vid:ws.listId})));
+  app.appendChild(el('div','vhead','<h2>'+esc(ws.name)+'</h2><div class="n">'+esc(ws.src)+'</div>'));
+  app.appendChild(el('div','tip','📝 這是補習班作業的互動版。每題答完<b>馬上批改</b>，答錯會告訴你為什麼。'));
+
+  const wrap=el('div','acts');
+  ws.parts.forEach((p,pi)=>{
+    const dn=wsPartDone(ws.id,pi);
+    const b=el('button','act');
+    b.innerHTML='<div class="ai" style="background:#e9f3ff;font-size:15px;font-weight:800;color:#3b6ea8">'+
+      p.t.replace('Part ','P')+'</div>'+
+      '<div class="at"><b>'+esc(p.title)+'　'+p.items.length+' 題</b><span>'+esc(p.en)+'</span></div>'+
+      '<div class="ck emo'+(dn?' on':'')+'">'+(dn?'✅':'⬜')+'</div>';
+    b.onclick=()=>{ wrun=null; go('wspart',{wsid:ws.id, wspi:pi}); };
+    wrap.appendChild(b);
+  });
+  app.appendChild(wrap);
+
+  const wrongs=wsWrongOf(ws.id);
+  if(wrongs.length){
+    const rb=el('button','tgo','🔁 只練答錯的 '+wrongs.length+' 題');
+    rb.style.cssText+='background:#ffe1dc;color:#b23a28;box-shadow:0 4px 0 #f7c3ba';
+    rb.onclick=()=>{ wrun=null; go('wspart',{wsid:ws.id, wspi:-1}); };
+    app.appendChild(rb);
+  }
+  const pr=el('button','tgo','🖨️ 印成紙本作業（含解答）');
+  pr.style.cssText+='background:#f4ece2;color:var(--ink);box-shadow:0 4px 0 #e7dbcb;margin-top:9px';
+  pr.onclick=()=>{ buildWorksheetSheet(ws); setTimeout(()=>window.print(),120); };
+  app.appendChild(pr);
+}
+
+let wrun=null;
+function wsItems(ws,pi){
+  if(pi<0){
+    const ids=wsWrongOf(ws.id).map(w=>w.id);
+    const out=[];
+    ws.parts.forEach((p,i)=>p.items.forEach(it=>{ if(ids.indexOf(it.id)>=0) out.push({it,p,pi:i}); }));
+    return out;
+  }
+  return ws.parts[pi].items.map(it=>({it, p:ws.parts[pi], pi}));
+}
+function buildWrun(ws,pi){
+  let list=wsItems(ws,pi);
+  if(S.shuffle && pi>=0) list=shuffle(list);
+  return {ws:ws.id, pi, list, i:0, got:0, picked:null, missed:[]};
+}
+function renderWspart(){
+  const ws=wsById(S.wsid); if(!ws){ go('vocab'); return; }
+  if(!wrun||wrun.ws!==ws.id||wrun.pi!==S.wspi) wrun=buildWrun(ws,S.wspi);
+  if(!wrun.list.length){ go('wsheet',{wsid:ws.id}); return; }
+  const cur=wrun.list[wrun.i], it=cur.it, p=cur.p;
+
+  app.innerHTML=''; bankwrap.innerHTML='';
+  const title=(S.wspi<0?'錯題複習':p.t+' · '+p.title);
+  app.appendChild(topbar(title,()=>{wrun=null;go('wsheet',{wsid:ws.id});}));
+  app.appendChild(el('div','qhead',
+    '<span>第 '+(wrun.i+1)+' / '+wrun.list.length+' 題</span><span>答對 '+wrun.got+' 題</span>'));
+
+  if(p.reading){
+    const rd=el('div','gcard');
+    rd.innerHTML='<h3 style="font-size:17px">'+esc(p.reading.title)+'</h3>'+
+      '<div style="font-size:15px;line-height:1.95;margin:8px 0 10px">'+esc(p.reading.text)+'</div>'+
+      '<div style="font-size:12.5px;color:var(--soft);font-weight:600;line-height:1.8;'+
+      'background:#fbf7f1;border-radius:12px;padding:10px 12px">'+esc(p.reading.zh)+'</div>';
+    const sp=el('button','mini','🔊 唸短文'); sp.style.marginTop='9px';
+    sp.onclick=()=>speak(p.reading.text);
+    rd.appendChild(sp);
+    app.appendChild(rd);
+  } else if(p.tip && wrun.i===0 && wrun.picked===null){
+    app.appendChild(el('div','tip','💡 '+p.tip));
+  }
+
+  const filled=wrun.picked!==null;
+  const card=el('div','qcard');
+  card.innerHTML=
+    (S.wspi<0?'<div class="chtag">'+p.t+'</div>':'')+
+    (it.pic?'<div class="pic emo">'+it.pic+'</div>':'')+
+    '<div class="sent">'+(it.a?esc(it.a)+' ':'')+
+      '<span class="blank'+(filled?' filled':'')+'" style="border-color:'+(filled?'var(--good)':'#3b6ea8')+'">'+
+      (filled?esc(it.o[it.k]):'____')+'</span> '+esc(it.b||'')+'</div>'+
+    '<div class="zh">'+esc(it.zh)+'</div>';
+  app.appendChild(card);
+
+  const opts=el('div','opts');
+  it.o.forEach((o,n)=>{
+    const b=el('button','opt',esc(o));
+    if(filled){
+      if(n===it.k) b.classList.add('ok');
+      else if(n===wrun.picked) b.classList.add('no');
+      else b.classList.add('dim');
+    }
+    b.onclick=()=>{
+      if(wrun.picked!==null) return;
+      wrun.picked=n;
+      const right=(n===it.k);
+      if(right){
+        wrun.got++; addStars(1); tone(true);
+        if(S.wsWrong[it.id]) delete S.wsWrong[it.id];
+      } else {
+        tone(false); wrun.missed.push(it.id);
+        S.wsWrong[it.id]={id:it.id, ws:ws.id, part:p.t,
+          q:((it.a?it.a+' ':'')+'____ '+(it.b||'')).replace(/\s+/g,' ').trim(),
+          ans:it.o[it.k], zh:it.zh, n:((S.wsWrong[it.id]||{}).n||0)+1};
+      }
+      save(); render();
+      speak(((it.a?it.a+' ':'')+it.o[it.k]+' '+(it.b||'')).replace(/\s+/g,' ').trim());
+    };
+    opts.appendChild(b);
+  });
+  app.appendChild(opts);
+
+  if(filled){
+    const ok=(wrun.picked===it.k);
+    app.appendChild(el('div','fb '+(ok?'ok':'no'),
+      (ok?'🎉 答對了！＋1 顆星　':'💪 再看一次：')+it.why));
+    const last=(wrun.i===wrun.list.length-1);
+    const nav=el('div','nav'); nav.style.marginTop='13px';
+    const sp=el('button','btn','🔊 再聽一次');
+    sp.onclick=()=>speak(((it.a?it.a+' ':'')+it.o[it.k]+' '+(it.b||'')).replace(/\s+/g,' ').trim());
+    const nx=el('button','btn pri',(last?'看成績 🎉':'下一題 →'));
+    nx.style.background='#3b6ea8';
+    nx.onclick=()=>{
+      if(last){
+        const g=wrun.got,t=wrun.list.length,pi=wrun.pi; wrun=null;
+        if(pi<0){ go('wsheet',{wsid:ws.id}); return; }
+        const d=wsDone(ws.id), first=!d['p'+pi];
+        d['p'+pi]=true;
+        if(first) addStars(2); else save();
+        doneInfo={u:{name:ws.parts[pi].t+' '+ws.parts[pi].title, hex:'#3b6ea8', badge:'🎖️'},
+          bonus:first?2:0, msg:'你答對了 '+g+' / '+t+' 題！'+(wsAllDone(ws)?'　整份作業都完成了！':''),
+          unitBadge:wsAllDone(ws), back:()=>go('wsheet',{wsid:ws.id})};
+        go('vdone'); confetti(); tone(true);
+      } else { wrun.i++; wrun.picked=null; render(); }
+    };
+    nav.appendChild(sp); nav.appendChild(nx);
+    app.appendChild(nav);
+  }
+}
+
+/* 紙本作業 */
+function buildWorksheetSheet(ws){
+  let h='<div class="sheet"><h1>'+esc(ws.name)+'</h1>'+
+    '<div style="font-size:12.5px;color:#444;margin-bottom:4px">'+esc(ws.src)+'</div>'+
+    '<div class="meta"><span>姓名：____________</span><span>班級：__________</span>'+
+    '<span>日期：____ / ____</span><span>分數：________</span></div>';
+  ws.parts.forEach(p=>{
+    h+='<h2>'+p.t+'：'+esc(p.title)+'<span style="font-weight:400;font-size:12px">　'+esc(p.en)+'</span></h2>';
+    if(p.reading){
+      h+='<div style="border:1.5px solid #999;border-radius:8px;padding:10px 12px;margin-bottom:10px">'+
+        '<b>'+esc(p.reading.title)+'</b><br><span style="font-size:13.5px;line-height:1.9">'+esc(p.reading.text)+'</span></div>';
+    }
+    h+='<ol>';
+    p.items.forEach(it=>{
+      h+='<li>'+(it.pic?'<span style="font-size:22px">'+it.pic+'</span>　':'')+
+        (it.a?esc(it.a)+' ':'')+'( '+it.o.map(esc).join(' / ')+' ) '+esc(it.b||'')+
+        '<span class="zhs">（'+esc(it.zh)+'）</span></li>';
+    });
+    h+='</ol>';
+  });
+  h+='</div><div class="sheet"><h1>解答　'+esc(ws.name)+
+    '<span style="font-size:13px;font-weight:400">　教師用</span></h1>';
+  ws.parts.forEach(p=>{
+    h+='<h2>'+p.t+'：'+esc(p.title)+'</h2><div class="key">';
+    p.items.forEach((it,i)=>{
+      h+='<div><b>'+(i+1)+'.</b> <b style="min-width:0">'+esc(it.o[it.k])+'</b>　'+
+        '<span style="color:#555;font-size:13px">'+stripTags(it.why)+'</span></div>';
+    });
+    h+='</div>';
+  });
+  h+='</div>';
+  printEl.innerHTML=h;
+}
+
+/* ---------- 老師自建單字表 ---------- */
+function parseWords(text){
+  const out=[];
+  String(text||'').split(/\r?\n/).forEach(line=>{
+    let s=line.trim();
+    if(!s) return;
+    s=s.replace(/^\(?\d{1,3}\)?\s*[.、,)：:]?\s*/,'');        // 去掉開頭編號
+    let en='', zh='';
+    const m=s.match(/[㐀-鿿　-〿＀-￯]/);
+    if(m && m.index>0){ en=s.slice(0,m.index); zh=s.slice(m.index); }
+    else{
+      const p=s.split(/\t|,|，|\s{2,}|\s[-–—]\s/);
+      if(p.length>=2){ en=p[0]; zh=p.slice(1).join(' '); } else return;
+    }
+    en=en.replace(/[-–—:：=,，、\s]+$/,'').trim();
+    zh=zh.replace(/^[-–—:：=,，、\s]+/,'').trim();
+    if(en && zh && /[a-zA-Z]/.test(en)) out.push({en,zh});
+  });
+  return out;
+}
+function renderVnew(){
+  const editing=S.veditId?listById(S.veditId):null;
+  app.innerHTML=''; bankwrap.innerHTML='';
+  app.appendChild(topbar(editing?'編輯單字表':'自建單字表',()=>{S.veditId=null;go('vocab');}));
+  app.appendChild(el('div','tip','📋 <b>整坯貼上就好</b>：一行一個單字，英文和中文中間空格、逗號或 Tab 都可以，'+
+    '開頭有編號也沒關係。例如從 Excel 或 Word 直接複製貼上。'));
+
+  const box=el('div','gcard');
+  box.appendChild(el('div','gsec','單字表名稱'));
+  const nameIn=document.createElement('input');
+  nameIn.className='tin'; nameIn.type='text'; nameIn.placeholder='例如：U1 Week 4';
+  nameIn.value=editing?editing.name:'';
+  box.appendChild(nameIn);
+
+  box.appendChild(el('div','gsec','單字內容'));
+  const ta=document.createElement('textarea');
+  ta.className='paste';
+  ta.placeholder='1 aunt 阿姨；姑姑\n2 cousin 堂（表）兄弟姊妹\n3 meal 一餐\n…';
+  if(editing) ta.value=editing.words.map((w,i)=>(i+1)+' '+w.en+' '+w.zh).join('\n');
+  box.appendChild(ta);
+
+  const pv=el('div','pv','貼上後這裡會顯示辨識結果。');
+  box.appendChild(pv);
+  const update=()=>{
+    const ws=parseWords(ta.value);
+    pv.innerHTML = ws.length
+      ? '✅ 讀到 <b>'+ws.length+'</b> 個單字：<br>'+ws.map((w,i)=>(i+1)+'. <b>'+esc(w.en)+'</b> — '+esc(w.zh)).join('<br>')
+      : '還沒讀到單字。請確認每行都有英文和中文。';
+    return ws;
+  };
+  ta.addEventListener('input',update);
+  update();
+  app.appendChild(box);
+
+  const ok=el('button','tgo',editing?'儲存修改':'建立單字表');
+  ok.onclick=()=>{
+    const ws=parseWords(ta.value);
+    const nm=nameIn.value.trim()||('自建單字表 '+((S.vocabLists||[]).length+1));
+    if(ws.length<2){ alert('至少要有 2 個單字才能建立。'); return; }
+    if(editing){ editing.name=nm; editing.words=ws; }
+    else{
+      const id='c'+Date.now().toString(36);
+      S.vocabLists=(S.vocabLists||[]).concat([{id, name:nm, note:'老師自建', words:ws}]);
+      S.vid=id;
+    }
+    S.veditId=null; save();
+    alert((editing?'已儲存修改，':'已建立單字表，')+'共 '+ws.length+' 個單字。');
+    go('vlist',{vid:editing?editing.id:S.vid});
+  };
+  app.appendChild(ok);
+}
+
+/* ---------- 單字錯字本 ---------- */
+function renderVwrong(){
+  app.innerHTML=''; bankwrap.innerHTML='';
+  app.appendChild(topbar('單字錯字本',()=>go('vocab')));
+  const keys=Object.keys(S.vocabWrong||{});
+  if(!keys.length){
+    app.appendChild(el('div','gcard','<h3 style="font-size:17px">目前沒有錯字 🎉</h3>'+
+      '<div class="sub">聽發音或拼字答錯的單字會收進這裡，答對一次就移除。</div>'));
+    return;
+  }
+  const byList={};
+  keys.forEach(k=>{ const w=S.vocabWrong[k]; (byList[w.list]=byList[w.list]||[]).push(w); });
+  app.appendChild(el('div','tip','🔁 共 <b>'+keys.length+'</b> 個單字需要加強。'));
+  Object.keys(byList).forEach(lid=>{
+    const l=listById(lid), ws=byList[lid];
+    const box=el('div','wbgroup');
+    box.appendChild(el('div','wbhead','<span class="c">'+esc(l?l.name:lid)+'</span>'+
+      '<span class="t"></span><span class="n">'+ws.length+' 個</span>'));
+    let t='<table class="wtab">';
+    ws.forEach(w=>{ t+='<tr><td class="e">'+esc(w.en)+'</td><td class="z">'+esc(w.zh)+
+      '</td><td class="s" style="color:var(--bad);font-weight:800;font-size:12px">錯 '+w.n+'</td></tr>'; });
+    t+='</table>';
+    box.appendChild(el('div','',t));
+    if(l){
+      const b=el('button','wbbtn','🔁 重練這份單字表');
+      b.onclick=()=>{ vrun=null; go('vlisten',{vid:l.id}); };
+      box.appendChild(b);
+    }
+    app.appendChild(box);
+  });
+  const cl=el('button','tgo','清空單字錯字本');
+  cl.style.cssText+='background:#f4ece2;color:var(--ink);box-shadow:0 4px 0 #e7dbcb';
+  cl.onclick=()=>{ if(confirm('確定清空？')){ S.vocabWrong={}; save(); render(); } };
+  app.appendChild(cl);
+}
+
+/* ---------- 單字默寫卷 ---------- */
+function buildVocabSheet(l){
+  const ws=l.words||[];
+  let h='<div class="sheet"><h1>單字默寫卷　'+esc(l.name)+'</h1>'+
+    '<div class="meta"><span>姓名：____________</span><span>班級：__________</span>'+
+    '<span>日期：____ / ____</span><span>分數：________</span></div>';
+  h+='<h2>一、看英文寫中文（每題 2.5 分）</h2><ol>';
+  ws.forEach(w=>{ h+='<li><b>'+esc(w.en)+'</b>　________________________</li>'; });
+  h+='</ol><h2>二、看中文寫英文（每題 2.5 分）</h2><ol>';
+  shuffle(ws).forEach(w=>{ h+='<li>'+esc(w.zh)+'　________________________</li>'; });
+  h+='</ol></div>';
+  h+='<div class="sheet"><h1>解答　'+esc(l.name)+'<span style="font-size:13px;font-weight:400">　教師用</span></h1>'+
+    '<h2>一、看英文寫中文</h2><div class="key">';
+  ws.forEach((w,i)=>{ h+='<div><b>'+(i+1)+'.</b> '+esc(w.en)+'　'+esc(w.zh)+'</div>'; });
+  h+='</div></div>';
+  printEl.innerHTML=h;
 }
 
 /* =========================================================
@@ -2205,16 +3267,12 @@ function renderTeacher(){
   imBtn.style.cssText+='background:#f4ece2;color:var(--ink);box-shadow:0 4px 0 #e7dbcb;margin-top:9px';
   const fi=document.createElement('input');
   fi.type='file'; fi.accept='.json,application/json'; fi.style.display='none';
-  fi.onchange=()=>{
-    if(!fi.files||!fi.files[0]) return;
-    importData(fi.files[0],(err,when)=>{
-      if(err) alert('匯入失敗：'+err.message);
-      else { alert('匯入成功！\n這份紀錄的儲存時間：'+(when?String(when).slice(0,16).replace('T',' '):'未知')); render(); }
-      fi.value='';
-    });
-  };
+  fi.onchange=()=>{ handleImportFile(fi); };
   imBtn.onclick=()=>fi.click();
   s5.appendChild(imBtn); s5.appendChild(fi);
+  s5.appendChild(el('div','saverow',
+    '<span class="dot '+(STORAGE_OK?'on':'off')+'"></span><span class="t">自動儲存</span>'+
+    '<span class="v">'+(STORAGE_OK?'開啟中　最後儲存 '+fmtTime(S.lastSaved):'此瀏覽器無法自動儲存')+'</span>'));
   app.appendChild(s5);
 }
 
@@ -2390,30 +3448,47 @@ function doPrintWrong(){
 }
 
 /* ---- 學習紀錄匯出 / 匯入 ---- */
+function stamp(){
+  const d=new Date(), p=n=>String(n).padStart(2,'0');
+  return d.getFullYear()+p(d.getMonth()+1)+p(d.getDate())+'-'+p(d.getHours())+p(d.getMinutes());
+}
 function exportData(){
-  const payload={app:'happy-english', version:2, savedAt:new Date().toISOString(),
-    stars:S.stars, done:S.done, stats:S.stats, wrong:S.wrong, shuffle:S.shuffle};
-  const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+  S.lastExport=Date.now(); save();
+  const blob=new Blob([JSON.stringify(payload(),null,2)],{type:'application/json'});
   const a=document.createElement('a');
   a.href=URL.createObjectURL(blob);
-  a.download='快樂學英文-學習紀錄.json';
+  /* 用純英文檔名：中文檔名在部分瀏覽器下載時會被丟掉，連 .json 副檔名都不見，之後就匯不回來 */
+  a.download='happy-english-progress-'+stamp()+'.json';
   document.body.appendChild(a); a.click();
   setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },1500);
+}
+function describe(d){
+  let sets=0;
+  UNITS.forEach(u=>SETS.forEach(t=>{
+    const x=d.done&&d.done[u.id]&&d.done[u.id][t];
+    if(x&&x.teach&&x.quiz&&x.match&&x.fill) sets++;
+  }));
+  return '　儲存時間：'+(d.savedAt?String(d.savedAt).slice(0,16).replace('T',' '):'未知')+
+         '\n　星星：'+(d.stars||0)+' 顆'+
+         '\n　完成卷數：'+sets+' / 12'+
+         '\n　錯題：'+Object.keys(d.wrong||{}).length+' 題';
 }
 function importData(file,cb){
   const r=new FileReader();
   r.onload=()=>{
     try{
       const d=JSON.parse(r.result);
-      if(d.app!=='happy-english') throw new Error('這不是本教材的紀錄檔');
-      if(typeof d.stars==='number') S.stars=d.stars;
-      if(typeof d.shuffle==='boolean') S.shuffle=d.shuffle;
-      if(d.stats) S.stats=d.stats;
-      if(d.wrong) S.wrong=d.wrong;
-      if(d.done) UNITS.forEach(u=>SETS.forEach(t=>{
-        if(d.done[u.id]&&d.done[u.id][t]) Object.assign(S.done[u.id][t], d.done[u.id][t]);
-      }));
-      save(); cb(null, d.savedAt);
+      if(!d||d.app!=='happy-english') throw new Error('這不是本教材的紀錄檔');
+      const cur='　目前：星星 '+S.stars+' 顆、錯題 '+Object.keys(S.wrong).length+' 題';
+      const ok=confirm('要匯入這份紀錄嗎？\n\n【檔案內容】\n'+describe(d)+'\n\n【這台裝置】\n'+cur+
+        '\n\n按「確定」＝ 用檔案<覆蓋>目前紀錄\n按「取消」＝ 不匯入');
+      if(!ok){ cb(new Error('已取消匯入')); return; }
+      const merge=confirm('要保留這台裝置原本的紀錄，把兩邊<合併>起來嗎？\n\n'+
+        '按「確定」＝ 合併（星星取較高、完成與錯題兩邊都保留）\n'+
+        '按「取消」＝ 直接覆蓋');
+      if(merge) mergeData(d); else applyData(d);
+      save();
+      cb(null,d.savedAt);
     }catch(e){ cb(e); }
   };
   r.onerror=()=>cb(new Error('讀取檔案失敗'));
@@ -2455,6 +3530,16 @@ function render(){
     case 'gerrors': renderGErrors(); break;
     case 'goverview': renderGOverview(); break;
     case 'wrongbook': renderWrongBook(); break;
+    case 'vocab': renderVocab(); break;
+    case 'vlist': renderVList(); break;
+    case 'vcards': renderVcards(); break;
+    case 'vlisten': renderVlisten(); break;
+    case 'vspell': renderVspell(); break;
+    case 'vnew': renderVnew(); break;
+    case 'vwrong': renderVwrong(); break;
+    case 'vdone': renderDone(); break;
+    case 'wsheet': renderWsheet(); break;
+    case 'wspart': renderWspart(); break;
   }
 }
 render();
